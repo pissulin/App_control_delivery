@@ -1,0 +1,30 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+       
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.background h1 {
+    color: white;
+    width: 300px;
+    font-size: 3em;
+}
+
+.background h1 span {
+    background-color: wheat;
+    font-size: 1em;
+    color: black;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.background img {
+    width: 20em;
+}
+
+.background .setaDireita{
+    margin-top: 50px;
+}
