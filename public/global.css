@@ -8,3 +8,11 @@
   
 body {
     background-color: #c5533a;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

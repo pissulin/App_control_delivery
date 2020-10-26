@@ -1,0 +1,13 @@
+.container {
+    justify-content: space-between;
+}
+
+.fechamento {
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(255, 255, 255, 0.171);
+    margin-bottom: 30px;
+    padding: 40px 10px;
+    line-height: 4em;
+    border-radius: 10px;
+}
