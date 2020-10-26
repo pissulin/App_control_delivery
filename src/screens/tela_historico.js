@@ -15,6 +15,7 @@ export default function Historico() {
         <div className="container">
             <h1 className="historico">Histórico</h1>
             <div id= "rows" className='rows'>
+                
                 {entregas.map((entrega) => {
                     //console.log(entrega, index);
                     return <Row id={entrega['id']} numero={entrega['numComanda']} taxa={entrega['valorTaxa']} />

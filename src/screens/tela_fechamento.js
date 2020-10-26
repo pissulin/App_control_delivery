@@ -24,7 +24,7 @@ function Close() {
             <h2>{`Total de entregas: ${soma}`}</h2>
             <h2>{`Total das taxas: R$ ${(saldofinal).toFixed(2)}`}</h2>
             <h2>{`Diária: R$ ${(diaria).toFixed(2)}`}</h2>
-            <h2>{`Total a receber R$ ${saldofinal + diaria}`}</h2>
+            <h2>{`Total a receber R$ ${(saldofinal + diaria).toFixed(2)}`}</h2>
         </div>
         
         <div className="setas">
