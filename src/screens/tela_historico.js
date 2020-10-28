@@ -18,7 +18,8 @@ export default function Historico() {
                 <h1 className="historico">Histórico</h1>
                 <button onClick={function(){
                     localStorage.clear()
-                    window.location.reload()
+                    setInterval(() => window.location.reload(),1000)
+                    
                 }} ><FiRefreshCcw className="apagar" size={30} color={"white"} /></button>
             </header>
             

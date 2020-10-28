@@ -17,13 +17,21 @@ header {
 }
 header > button {
     background-color: transparent;
-    transition: transform 1s;
     box-shadow: none;
 }
 header > button:hover {
-    transform: rotate(360deg);
+    animation: girar 1s ;
     box-shadow: none;   
     outline: none; 
+}
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .rows {
