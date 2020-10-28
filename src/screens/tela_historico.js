@@ -8,7 +8,8 @@ import {FiArrowLeftCircle, FiArrowRightCircle} from 'react-icons/fi'
 
 export default function Historico() {
 
-    const entregas = JSON.parse(localStorage['entrega'])
+    try {
+        const entregas = JSON.parse(localStorage['entrega'])
     //console.log({"teste":entregas[0]})
 
     return (
@@ -30,6 +31,26 @@ export default function Historico() {
                 </Link>
             </div>
         </div>
-        
     )
+
+    } catch (error) {
+        return (
+            <div className="container">
+                <h1 className="historico">Histórico</h1>
+                <div id= "rows" className='rows'>
+                        
+                </div>
+                <div className="setas">
+                    <Link to='/controle'>
+                        <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
+                    </Link>
+                    <Link to='/fechamento'>
+                        <FiArrowRightCircle className='setaDireita' size={50} color="white" />
+                    </Link>
+                </div>
+            </div>
+        )
+    }
+    
+        
 }
