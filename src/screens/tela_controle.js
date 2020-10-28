@@ -9,27 +9,37 @@ import {FiArrowRightCircle} from 'react-icons/fi'
 const entrega = []
 let id = 0;
 
+
+
 function Controle () {
     const data = new Date()
     const dataAtual = data.getUTCDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear() 
     
-    
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
     
-
+    
     
    function handleSubmit(event){
-
-        
         event.preventDefault()
-        id++
-        entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa})
-        localStorage["entrega"] = JSON.stringify(entrega) 
-        document.getElementById('numComanda').value='';
-        document.getElementById('taxa').value='';
-        //const teste = localStorage["entrega"]
-        //console.log(teste)
+        if(numComanda === '' || valorTaxa === '' ){
+            const ele = document.querySelectorAll('#alerta')
+            ele[0].classList.remove('hidden')
+            ele[1].classList.remove('hidden')
+            return 
+        }else{
+            const ele = document.querySelectorAll('#alerta')
+            ele[0].classList.add('hidden')
+            ele[1].classList.add('hidden')
+            id++
+            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa})
+            localStorage["entrega"] = JSON.stringify(entrega) 
+            document.getElementById('numComanda').value='';
+            document.getElementById('taxa').value='';
+            //const teste = localStorage["entrega"]
+            //console.log(teste)
+        }
+        
 
     }
 
@@ -49,6 +59,7 @@ function Controle () {
                     autoComplete={false}
                     autoFocus={true}
                     inputMode="numeric" />
+                    <div id="alerta" className="hidden">Campo obrigatório</div>
             </div>
                 <div className='formulario'>
                 <label htmlFor= "taxa">Valor da taxa</label>
@@ -57,8 +68,8 @@ function Controle () {
                     value={valorTaxa}
                     onChange={event => setValorTaxa(event.target.value)}
                     maxLength={5}
-                    inputMode="numeric"
-                    />
+                    inputMode="numeric" />
+                    <div id="alerta" className="hidden">Campo obrigatório</div>
             </div>
                 <button   
                     className="submit" 
