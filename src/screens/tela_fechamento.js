@@ -6,8 +6,8 @@ import {FiArrowLeftCircle, FiArrowRightCircle} from 'react-icons/fi'
 import './tela_fechamento.css'
 
 function Close() {
-    
-    const entregas = JSON.parse(localStorage['entrega'])
+    try {
+        const entregas = JSON.parse(localStorage['entrega'])
     
     let soma = 0  
     let saldofinal = 0
@@ -36,6 +36,27 @@ function Close() {
             </Link>
         </div>
     </div>
+       
+    } catch (error) {
+        return <div className="container">
+        <h1>Fechamento</h1>
+            <div className="fechamento">
+            <h2>{`Total de entregas: 0`}</h2>
+            <h2>{`Total das taxas: 0 `}</h2>
+            <h2>{`Diária: 0`}</h2>
+            <h2>{`Total a receber 0`}</h2>
+        </div>
+        
+        <div className="setas">
+            <Link to='/historico'>
+                <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
+            </Link>
+            <Link to='/'>
+                <FiArrowRightCircle className='setaDireita' size={50} color="white" />
+            </Link>
+        </div>
+    </div>
+    }
 }
 
 
