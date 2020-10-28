@@ -4,7 +4,7 @@ import Row from '../components/RowHistorico'
 
 import './tela_historico.css'
 
-import {FiArrowLeftCircle, FiArrowRightCircle} from 'react-icons/fi'
+import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw} from 'react-icons/fi'
 
 export default function Historico() {
 
@@ -14,7 +14,15 @@ export default function Historico() {
 
     return (
         <div className="container">
-            <h1 className="historico">Histórico</h1>
+            <header>
+                <h1 className="historico">Histórico</h1>
+                <button onClick={function(){
+                    localStorage.clear()
+                    setInterval(() => window.location.reload(),1000)
+                    
+                }} ><FiRefreshCcw className="apagar" size={30} color={"white"} /></button>
+            </header>
+            
             <div id= "rows" className='rows'>
                 
                 {entregas.map((entrega) => {
@@ -36,7 +44,11 @@ export default function Historico() {
     } catch (error) {
         return (
             <div className="container">
-                <h1 className="historico">Histórico</h1>
+                <header>
+                    <h1 className="historico">Histórico</h1>
+                    <button><FiRefreshCcw className="apagar" size={30} color={"white"} /></button>
+                </header>
+                
                 <div id= "rows" className='rows'>
                         
                 </div>

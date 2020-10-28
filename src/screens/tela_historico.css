@@ -8,6 +8,32 @@
 .container .historico {
     padding-bottom: 0;
 }
+
+header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    width: 100%;
+}
+header > button {
+    background-color: transparent;
+    box-shadow: none;
+}
+header > button:hover {
+    animation: girar 1s ;
+    box-shadow: none;   
+    outline: none; 
+}
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .rows {
     display: flex;
     align-items: flex-start;
