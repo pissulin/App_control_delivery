@@ -10,7 +10,7 @@ import {FiArrowRightCircle} from 'react-icons/fi' //icon seta p/direita
 function Background(){
     return (
          <div className='background'>
-             <h1><span>Controle</span> de <span>taxas</span> das <span>entregas</span></h1>
+             <h1><span>Controle</span> suas <span>taxas</span> das <span>entregas</span></h1>
              <img src={backgroundImg} />
              <Link to='/controle'>
              <FiArrowRightCircle className='setaDireita' size={50} color="white" />
