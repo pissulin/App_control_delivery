@@ -22,6 +22,27 @@ function Controle () {
     
    function handleSubmit(event){
         event.preventDefault()
+
+        const regexValidaInput = RegExp(/^[,.]/g)
+         
+        if(regexValidaInput.test(numComanda)){
+            const ele = document.querySelectorAll('#alerta2')
+            ele[0].classList.remove('hidden')
+            return 
+        }else{
+            const ele = document.querySelectorAll('#alerta2')
+            ele[0].classList.add('hidden')
+        }
+
+        if(regexValidaInput.test(valorTaxa)){
+            const ele = document.querySelectorAll('#alerta2')
+            ele[1].classList.remove('hidden')
+            return 
+        } else{
+            const ele = document.querySelectorAll('#alerta2')
+            ele[1].classList.add('hidden')
+        }
+    
         if(numComanda === '' || valorTaxa === '' ){
             const ele = document.querySelectorAll('#alerta')
             ele[0].classList.remove('hidden')
@@ -32,7 +53,8 @@ function Controle () {
             ele[0].classList.add('hidden')
             ele[1].classList.add('hidden')
             id++
-            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa})
+            
+            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, ".")})
             localStorage["entrega"] = JSON.stringify(entrega) 
             document.getElementById('numComanda').value='';
             document.getElementById('taxa').value='';
@@ -60,6 +82,7 @@ function Controle () {
                     autoFocus={true}
                     inputMode="numeric" />
                     <div id="alerta" className="hidden">Campo obrigatório</div>
+                    <div id="alerta2" className="hidden">Não é permitido virgula antes dos numeros</div>
             </div>
                 <div className='formulario'>
                 <label htmlFor= "taxa">Valor da taxa</label>
@@ -70,6 +93,7 @@ function Controle () {
                     maxLength={5}
                     inputMode="numeric" />
                     <div id="alerta" className="hidden">Campo obrigatório</div>
+                    <div id="alerta2" className="hidden">Não é permitido virgula antes dos numeros</div>
             </div>
                 <button   
                     className="submit" 

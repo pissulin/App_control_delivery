@@ -72,6 +72,18 @@ input {
     
 }
 
+#alerta2 {
+    color:black;
+    background-color: yellow;
+    font-weight: bold;
+    margin: 5px 0 0;
+    padding: 4px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    
+}
+
+
 .hidden {
     display: none;
 }
