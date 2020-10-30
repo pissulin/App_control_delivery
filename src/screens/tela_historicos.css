@@ -1,0 +1,12 @@
+.mensagem {
+    margin: 30px 0;
+    padding: 10px;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7em;
+    background-color: rgba(255, 255, 255, 0.171);
+    border-radius: 10px;
+}
