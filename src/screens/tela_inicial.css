@@ -13,11 +13,12 @@
     width: 300px;
     font-size: 3em;
     margin-top: 70px;
+    text-align: center;
 }
 
 .background h1 span {
     background-color: wheat;
-    font-size: 1em;
+    font-size: 0.9em;
     color: black;
     font-family: 'Roboto Mono', sans-serif;
 }

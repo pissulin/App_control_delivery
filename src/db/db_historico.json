@@ -1,0 +1,26 @@
+
+{
+    "entregas": [
+        {
+            "data": "28/10/2020",
+            "totalEntregas": 10,
+            "totalTaxas": 120.00,
+            "diaria": 40.00,
+            "totalReceber": 160.00            
+        },
+        {
+            "data": "29/10/2020",
+            "totalEntregas": 20,
+            "totalTaxas": 140.00,
+            "diaria": 40.00,
+            "totalReceber": 180.00            
+        },
+        {
+            "data": "30/10/2020",
+            "totalEntregas": 20,
+            "totalTaxas": 140.00,
+            "diaria": 40.00,
+            "totalReceber": 180.00            
+        }
+    ]
+}

@@ -31,7 +31,7 @@ function Close() {
             <Link to='/historico'>
                 <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
             </Link>
-            <Link to='/'>
+            <Link to='/historicos'>
                 <FiArrowRightCircle className='setaDireita' size={50} color="white" />
             </Link>
         </div>
@@ -51,7 +51,7 @@ function Close() {
             <Link to='/historico'>
                 <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
             </Link>
-            <Link to='/'>
+            <Link to='/historicos'>
                 <FiArrowRightCircle className='setaDireita' size={50} color="white" />
             </Link>
         </div>

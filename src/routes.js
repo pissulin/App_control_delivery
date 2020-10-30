@@ -7,6 +7,7 @@ import Controle from './screens/tela_controle';
 import Home from './screens/tela_inicial';
 import Historico from './screens/tela_historico';
 import Fechamento from './screens/tela_fechamento';
+import Historicos from './screens/tela_historicos';
 
 function Routes(){
     return (
@@ -15,7 +16,9 @@ function Routes(){
                 <Route path="/" exact component={Home} />
                 <Route path="/controle" component={Controle} />
                 <Route path="/historico" component={Historico} />
-                <Route path="/fechamento" component={Fechamento}/>
+                <Route path="/fechamento" component={Fechamento} />
+                <Route path="/historicos" component={Historicos} />
+                
             </Switch>
         </BrowserRouter>
     );
