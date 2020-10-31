@@ -12,10 +12,12 @@ function Close() {
     let soma = 0  
     let saldofinal = 0
     let diaria = 40.00
+    let caixinha = 0
 
     entregas.map((e) => {
         soma++
         saldofinal = saldofinal + parseFloat(e['valorTaxa'])
+        caixinha = caixinha + parseFloat(e['caixinha'])
     } )
    
     return <div className="container">
@@ -23,8 +25,9 @@ function Close() {
             <div className="fechamento">
             <h2>{`Total de entregas: ${soma}`}</h2>
             <h2>{`Total das taxas: R$ ${(saldofinal).toFixed(2)}`}</h2>
+            <h2>{`Total das caixinhas: R$ ${(caixinha).toFixed(2)} `}</h2>
             <h2>{`Diária: R$ ${(diaria).toFixed(2)}`}</h2>
-            <h2>{`Total a receber R$ ${(saldofinal + diaria).toFixed(2)}`}</h2>
+            <h2>{`Total a receber R$ ${(saldofinal + diaria + caixinha).toFixed(2)}`}</h2>
         </div>
         
         <div className="setas">
@@ -43,6 +46,7 @@ function Close() {
             <div className="fechamento">
             <h2>{`Total de entregas: 0`}</h2>
             <h2>{`Total das taxas: 0 `}</h2>
+            <h2>{`Total das caixinhas: 0 `}</h2>
             <h2>{`Diária: 0`}</h2>
             <h2>{`Total a receber 0`}</h2>
         </div>

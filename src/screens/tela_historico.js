@@ -6,6 +6,8 @@ import './tela_historico.css'
 
 import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw} from 'react-icons/fi'
 
+
+
 export default function Historico() {
 
     try {
@@ -17,8 +19,13 @@ export default function Historico() {
             <header>
                 <h1 className="historico">Histórico</h1>
                 <button onClick={function(){
-                    localStorage.clear()
-                    setInterval(() => window.location.reload(),1000)
+                        if (window.confirm("Confirmar a exclusão!")) { 
+                            localStorage.clear()
+                            setInterval(() => window.location.reload(),1000)
+                          }
+                        
+                    
+                    
                     
                 }} ><FiRefreshCcw className="apagar" size={30} color={"white"} /></button>
             </header>
@@ -27,7 +34,11 @@ export default function Historico() {
                 
                 {entregas.map((entrega) => {
                     //console.log(entrega, index);
-                    return <Row id={entrega['id']} numero={entrega['numComanda']} taxa={entrega['valorTaxa']} />
+                    return <Row 
+                            id={entrega['id']} 
+                            numero={entrega['numComanda']} 
+                            taxa={entrega['valorTaxa']} 
+                            caixinha={entrega['caixinha']} />
                 })}      
             </div>
             <div className="setas">

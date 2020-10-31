@@ -17,6 +17,7 @@ function Controle () {
     
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
+    const [caixinha, setCaixinha] = useState('')
     
     
     
@@ -34,7 +35,7 @@ function Controle () {
             ele[0].classList.add('hidden')
         }
 
-        if(regexValidaInput.test(valorTaxa)){
+        if(regexValidaInput.test(valorTaxa) || regexValidaInput.test(caixinha)){
             const ele = document.querySelectorAll('#alerta2')
             ele[1].classList.remove('hidden')
             return 
@@ -54,10 +55,11 @@ function Controle () {
             ele[1].classList.add('hidden')
             id++
             
-            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, ".")})
+            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".")})
             localStorage["entrega"] = JSON.stringify(entrega) 
             document.getElementById('numComanda').value='';
             document.getElementById('taxa').value='';
+            document.getElementById('caixinha').value='';
             //const teste = localStorage["entrega"]
             //console.log(teste)
         }
@@ -84,14 +86,30 @@ function Controle () {
                     <div id="alerta" className="hidden">Campo obrigatório</div>
                     <div id="alerta2" className="hidden">Não é permitido virgula antes dos numeros</div>
             </div>
-                <div className='formulario'>
-                <label htmlFor= "taxa">Valor da taxa</label>
-                <input 
-                    id="taxa" 
-                    value={valorTaxa}
-                    onChange={event => setValorTaxa(event.target.value)}
-                    maxLength={5}
-                    inputMode="numeric" />
+                
+                        <div className='formulario'>
+                        <div className="containerInputValores">
+                            <div className="inputValores">
+                                <label htmlFor= "taxa">Valor da taxa</label>
+                                <input 
+                                    id="taxa" 
+                                    value={valorTaxa}
+                                    onChange={event => setValorTaxa(event.target.value)}
+                                    maxLength={5}
+                                    inputMode="numeric" />
+                            </div>
+                            <div className="inputValores">
+                                <label htmlFor= "caixinha">Caixinha</label>
+                                <input 
+                                    id="caixinha" 
+                                    value={caixinha}
+                                    onChange={event => setCaixinha(event.target.value)}
+                                    maxLength={5}
+                                    inputMode="numeric" />
+                            </div>
+                    </div>
+                    
+                
                     <div id="alerta" className="hidden">Campo obrigatório</div>
                     <div id="alerta2" className="hidden">Não é permitido virgula antes dos numeros</div>
             </div>
