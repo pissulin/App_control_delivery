@@ -13,7 +13,7 @@ let id = 0;
 
 function Controle () {
     const data = new Date()
-    const dataAtual = data.getUTCDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear() 
+    const dataAtual = data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear() 
     
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
@@ -55,11 +55,11 @@ function Controle () {
             ele[1].classList.add('hidden')
             id++
             
-            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".")})
+            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
             localStorage["entrega"] = JSON.stringify(entrega) 
             document.getElementById('numComanda').value='';
             document.getElementById('taxa').value='';
-            document.getElementById('caixinha').value='';
+            document.getElementById('caixinha').value= '';
             //const teste = localStorage["entrega"]
             //console.log(teste)
         }
@@ -84,7 +84,7 @@ function Controle () {
                     autoFocus={true}
                     inputMode="numeric" />
                     <div id="alerta" className="hidden">Campo obrigatório</div>
-                    <div id="alerta2" className="hidden">Não é permitido virgula antes dos numeros</div>
+                    <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
             </div>
                 
                         <div className='formulario'>
@@ -111,7 +111,7 @@ function Controle () {
                     
                 
                     <div id="alerta" className="hidden">Campo obrigatório</div>
-                    <div id="alerta2" className="hidden">Não é permitido virgula antes dos numeros</div>
+                    <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
             </div>
                 <button   
                     className="submit" 

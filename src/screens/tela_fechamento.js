@@ -23,9 +23,9 @@ function Close() {
     return <div className="container">
         <h1>Fechamento</h1>
             <div className="fechamento">
-            <h2>{`Total de entregas: ${soma}`}</h2>
-            <h2>{`Total das taxas: R$ ${(saldofinal).toFixed(2)}`}</h2>
-            <h2>{`Total das caixinhas: R$ ${(caixinha).toFixed(2)} `}</h2>
+            <h2>{`Total entregas: ${soma}`}</h2>
+            <h2>{`Total taxas: R$ ${(saldofinal).toFixed(2)}`}</h2>
+            <h2>{`Total caixinhas: R$ ${(caixinha).toFixed(2)}`}</h2>
             <h2>{`Diária: R$ ${(diaria).toFixed(2)}`}</h2>
             <h2>{`Total a receber R$ ${(saldofinal + diaria + caixinha).toFixed(2)}`}</h2>
         </div>
@@ -44,9 +44,9 @@ function Close() {
         return <div className="container">
         <h1>Fechamento</h1>
             <div className="fechamento">
-            <h2>{`Total de entregas: 0`}</h2>
-            <h2>{`Total das taxas: 0 `}</h2>
-            <h2>{`Total das caixinhas: 0 `}</h2>
+            <h2>{`Total entregas: 0`}</h2>
+            <h2>{`Total taxas: 0 `}</h2>
+            <h2>{`Total caixinhas: 0 `}</h2>
             <h2>{`Diária: 0`}</h2>
             <h2>{`Total a receber 0`}</h2>
         </div>
