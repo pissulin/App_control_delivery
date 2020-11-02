@@ -1,10 +1,14 @@
 .row {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
 }
 
 .row h2 {
-    font-size: 1em;
+    font-size: 0.8em;
+}
+
+.row h2 span {
+    color: white;
 }
