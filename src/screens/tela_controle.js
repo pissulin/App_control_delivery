@@ -13,7 +13,11 @@ let id = 0;
 
 function Controle () {
     const data = new Date()
-    const dataAtual = data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear() 
+
+    const dataAtual = `${data.getUTCDate()}/${(data.getMonth()+1)}/${data.getFullYear()}` 
+
+    
+
     
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
