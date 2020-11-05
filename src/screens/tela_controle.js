@@ -6,7 +6,7 @@ import './tela_controle.css'
 
 import {FiArrowRightCircle} from 'react-icons/fi'
 
-const entrega = []
+let entrega = []
 let id = 0;
 
 
@@ -57,15 +57,42 @@ function Controle () {
             const ele = document.querySelectorAll('#alerta')
             ele[0].classList.add('hidden')
             ele[1].classList.add('hidden')
-            id++
+                       
+
+            if(localStorage.getItem('entregas')){
+               let arrayEntregas= JSON.parse(localStorage['entregas'])
+               
+               entrega = []
+               
+               arrayEntregas.map(e=> {
+                   entrega.push(e)
+                   
+                })
+                if(entrega.length === 1){
+                    id += entrega.length
+                }else{
+                    id = 0
+                    id = entrega.length + 1
+                }
+                
+                entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
+                console.log(entrega)
+                localStorage.clear()
+                localStorage.setItem('entregas', JSON.stringify(entrega))
+                
+            }
+            else{
+                id++
+                entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
+                localStorage.setItem('entregas', JSON.stringify(entrega))
+                
+            }
             
-            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
-            localStorage["entrega"] = JSON.stringify(entrega) 
+       
             document.getElementById('numComanda').value='';
             document.getElementById('taxa').value='';
             document.getElementById('caixinha').value= '';
-            //const teste = localStorage["entrega"]
-            //console.log(teste)
+           
         }
         
 

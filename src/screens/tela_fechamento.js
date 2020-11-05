@@ -7,7 +7,7 @@ import './tela_fechamento.css'
 
 function Close() {
     try {
-        const entregas = JSON.parse(localStorage['entrega'])
+        const entregas = JSON.parse(localStorage['entregas'])
     
     let soma = 0  
     let saldofinal = 0

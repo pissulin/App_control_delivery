@@ -11,7 +11,7 @@ import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw} from 'react-icons/f
 export default function Historico() {
 
     try {
-        const entregas = JSON.parse(localStorage['entrega'])
+        const entregas = JSON.parse(localStorage['entregas'])
     //console.log({"teste":entregas[0]})
 
     return (
