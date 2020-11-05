@@ -12,8 +12,7 @@ export default function Historico() {
 
     try {
         const entregas = JSON.parse(localStorage['entregas'])
-    //console.log({"teste":entregas[0]})
-
+    
     return (
         <div className="container">
             <header>
@@ -21,7 +20,7 @@ export default function Historico() {
                 <button onClick={function(){
                         if (window.confirm("Confirmar a exclusão!")) { 
                             localStorage.clear()
-                            setInterval(() => window.location.reload(),1000)
+                            setInterval(() => window.location.reload(),900)
                           }
                         
                     
@@ -33,7 +32,6 @@ export default function Historico() {
             <div id= "rows" className='rows'>
                 
                 {entregas.map((entrega) => {
-                    //console.log(entrega, index);
                     return <Row 
                             id={entrega['id']} 
                             numero={entrega['numComanda']} 

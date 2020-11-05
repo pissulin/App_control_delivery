@@ -20,7 +20,7 @@ header > button {
     box-shadow: none;
 }
 header > button:hover {
-    animation: girar 1s ;
+    animation: girar 1s linear;
     box-shadow: none;   
     outline: none; 
 }
