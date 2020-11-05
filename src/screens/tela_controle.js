@@ -1,31 +1,31 @@
 import {React, useState} from 'react'
 import {Link} from 'react-router-dom'
 
+import * as Db from '../db/Db_historico'
+
 
 import './tela_controle.css'
 
 import {FiArrowRightCircle} from 'react-icons/fi'
 
-const entrega = []
+//const diaria = 40.00
+
 let id = 0;
-
-
 
 function Controle () {
     const data = new Date()
 
-    const dataAtual = `${data.getUTCDate()}/${(data.getMonth()+1)}/${data.getFullYear()}` 
+    const dataAtual = `${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}` 
 
     
 
-    
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
     const [caixinha, setCaixinha] = useState('')
+    const [diaria, setDiaria] = useState(40.00)
     
     
-    
-   function handleSubmit(event){
+   async function handleSubmit(event){
         event.preventDefault()
 
         const regexValidaInput = RegExp(/^[,.]/g)
@@ -59,13 +59,11 @@ function Controle () {
             ele[1].classList.add('hidden')
             id++
             
-            entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
-            localStorage["entrega"] = JSON.stringify(entrega) 
+            await Db.Add(dataAtual, numComanda, valorTaxa.replace(/,/g, "."), caixinha.replace(/,/g, ".") || 0, diaria)
             document.getElementById('numComanda').value='';
             document.getElementById('taxa').value='';
             document.getElementById('caixinha').value= '';
-            //const teste = localStorage["entrega"]
-            //console.log(teste)
+                       
         }
         
 
