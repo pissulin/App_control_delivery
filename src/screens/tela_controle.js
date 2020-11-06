@@ -68,7 +68,7 @@ function Controle () {
                 }
                 
                 entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
-                localStorage.clear()
+                localStorage.removeItem('entregas')
                 localStorage.setItem('entregas', JSON.stringify(entrega))
                 
             }

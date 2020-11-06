@@ -10,20 +10,19 @@ import './tela_historicos.css'
 
 function HistoricosSalvos(){
     try {
-        const arrayHistorico = require('../db/db_historico.json')
-
-        const data = arrayHistorico.entregas
-
-        console.log(data)
+        const arrayHistorico = JSON.parse(localStorage.historicos)
+ 
+        console.log(arrayHistorico)
 
         return (
             <div className="container">
-            {data.map((entrega) => {
+            {arrayHistorico.map((entrega) => {
                     return <Historicos 
-                                data={entrega['data']} 
-                                totalEntregas={entrega['totalEntregas']}
-                                totalTaxas={entrega['totalTaxas']}
+                                //data={entrega['data']} 
+                                totalEntregas={entrega['QtdEntregas']}
+                                totalTaxas={entrega['saldofinal']}
                                 diaria={entrega['diaria']}
+                                caixinha ={entrega['caixinha']}
                                 totalReceber={entrega['totalReceber']}
                             />
                 })}  

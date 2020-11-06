@@ -19,7 +19,7 @@ export default function Historico() {
                 <h1 className="historico">Histórico</h1>
                 <button onClick={function(){
                         if (window.confirm("Confirmar a exclusão!")) { 
-                            localStorage.clear()
+                            localStorage.removeItem('entregas')
                             setInterval(() => window.location.reload(),900)
                           }
                         
