@@ -9,8 +9,6 @@ import {FiArrowRightCircle} from 'react-icons/fi'
 let entrega = []
 let id = 0;
 
-let dataMilisseguntos = new Date().getTimezoneOffset()
-//console.log(dataMilisseguntos)
 function Controle () {
     const data =  new Date()
     const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
@@ -70,7 +68,6 @@ function Controle () {
                 }
                 
                 entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
-                console.log(entrega)
                 localStorage.clear()
                 localStorage.setItem('entregas', JSON.stringify(entrega))
                 
