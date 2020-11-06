@@ -9,22 +9,16 @@ import {FiArrowRightCircle} from 'react-icons/fi'
 let entrega = []
 let id = 0;
 
-
-
+let dataMilisseguntos = new Date().getTimezoneOffset()
+//console.log(dataMilisseguntos)
 function Controle () {
-    const data = new Date()
+    const data =  new Date()
+    const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
 
-    const dataAtual = `${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}` 
-
-    
-
-    
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
     const [caixinha, setCaixinha] = useState('')
-    
-    
-    
+
    function handleSubmit(event){
         event.preventDefault()
 
