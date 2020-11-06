@@ -1,6 +1,7 @@
 {
   "short_name": "Notes entregas",
   "name": "Controle suas taxas de delivery",
+  "lang":"pt-BR",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,16 +12,12 @@
       "src": "../src/images/logo.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "../src/images/logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
+  "scope": "/",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "orientantion": "portrait-primary"
+  "orientantion": "any"
 }
