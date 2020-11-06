@@ -26,7 +26,7 @@ function Close() {
     return <div className="container">
         <header>
             <h1>Fechamento</h1>
-                <button disabled={true} onClick={function(){
+                <button disabled={false} onClick={function(){
                     if (window.confirm("Salvar agora?")) { 
                         
                         if(localStorage.getItem('historicos')){
@@ -45,7 +45,16 @@ function Close() {
                                  id = historicos.length + 1
                              }
                              
-                             historicos.push({"id":id, "QtdEntregas": soma, "saldofinal": saldofinal, "diaria": diaria, "caixinha": caixinha})
+                             historicos.push(
+                                 {
+                                     "id":id, 
+                                     "QtdEntregas": soma, 
+                                     "saldofinal": saldofinal, 
+                                     "diaria": diaria, 
+                                     "caixinha": caixinha, 
+                                     "totalReceber":(saldofinal + diaria + caixinha) 
+                                }
+                            )
                              localStorage.removeItem('historicos')
                              localStorage.setItem('historicos', JSON.stringify(historicos))
                              
