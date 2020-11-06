@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './tela_inicial.css'
 
-import backgroundImg from '../images/background.jpg'
+import backgroundImg from '../images/background.webp'
 
 //icons
 import {FiArrowRightCircle} from 'react-icons/fi' //icon seta p/direita 
