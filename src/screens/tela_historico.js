@@ -40,10 +40,10 @@ export default function Historico() {
                 })}      
             </div>
             <div className="setas">
-                <Link to='/controle'>
+                <Link to='/controle' title="controle">
                     <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
                 </Link>
-                <Link to='/fechamento'>
+                <Link to='/fechamento' title="fechamento">
                     <FiArrowRightCircle className='setaDireita' size={50} color="white" />
                 </Link>
             </div>
@@ -62,10 +62,10 @@ export default function Historico() {
                         
                 </div>
                 <div className="setas">
-                    <Link to='/controle'>
+                    <Link to='/controle' title="controle">
                         <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
                     </Link>
-                    <Link to='/fechamento'>
+                    <Link to='/fechamento' title="fechamento">
                         <FiArrowRightCircle className='setaDireita' size={50} color="white" />
                     </Link>
                 </div>

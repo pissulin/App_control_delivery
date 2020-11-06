@@ -31,10 +31,10 @@ function Close() {
         </div>
         
         <div className="setas">
-            <Link to='/historico'>
+            <Link to='/historico' title="historico">
                 <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
             </Link>
-            <Link to='/historicos'>
+            <Link to='/historicos' title="historico">
                 <FiArrowRightCircle className='setaDireita' size={50} color="white" />
             </Link>
         </div>
@@ -52,10 +52,10 @@ function Close() {
         </div>
         
         <div className="setas">
-            <Link to='/historico'>
+            <Link to='/historico' title="historico">
                 <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
             </Link>
-            <Link to='/historicos'>
+            <Link to='/historicos' title="historico">
                 <FiArrowRightCircle className='setaDireita' size={50} color="white" />
             </Link>
         </div>

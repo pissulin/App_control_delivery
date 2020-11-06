@@ -11,8 +11,8 @@ function Background(){
     return (
          <div className='background'>
              <h1><span>Controle</span> suas <span>taxas</span> das <span>entregas</span></h1>
-             <img src={backgroundImg} />
-             <Link to='/controle'>
+             <img src={backgroundImg} alt="braços com mãos calculando " />
+             <Link to='/controle' title="page control">
              <FiArrowRightCircle className='setaDireita' size={50} color="white" />
              </Link>
          </div> 

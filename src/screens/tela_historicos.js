@@ -28,10 +28,10 @@ function HistoricosSalvos(){
                             />
                 })}  
                 <div className="setas">
-                    <Link to='/fechamento'>
+                    <Link to='/fechamento' title="fechamento">
                         <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
                     </Link>
-                    <Link to='/'>
+                    <Link to='/' title="home">
                         <FiArrowRightCircle className='setaDireita' size={50} color="white" />
                     </Link>
                 </div>
@@ -48,10 +48,10 @@ function HistoricosSalvos(){
                     </div>
                     
                     <div className="setas">
-                        <Link to='/fechamento'>
+                        <Link to='/fechamento' title="historico">
                             <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
                         </Link>
-                        <Link to='/'>
+                        <Link to='/' title="home">
                             <FiArrowRightCircle className='setaDireita' size={50} color="white" />
                         </Link>
                     </div>
