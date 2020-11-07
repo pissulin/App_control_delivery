@@ -11,7 +11,7 @@ let id = 0;
 
 function Controle () {
     const data = new Date()
-    const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
+    const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 60000)
     const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()} - ${data.getHours()}:${data.getMinutes()}` 
 
     const [numComanda, setNumComanda] = useState('')
