@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw} from 'react-icons/fi'
+import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw, FiX} from 'react-icons/fi'
 
 import Historicos from '../components/ContainerHistorico'
 import './tela_historicos.css'
@@ -16,6 +16,7 @@ function HistoricosSalvos(){
 
         return (
             <div className="container">
+                <FiX size={30} color="white"/>
             {arrayHistorico.map((entrega) => {
                     return <Historicos 
                                 //data={entrega['data']} 
