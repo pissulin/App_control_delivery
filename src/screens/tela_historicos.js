@@ -29,7 +29,7 @@ function HistoricosSalvos(){
                 
             {arrayHistorico.map((entrega) => {
                     return <Historicos 
-                                //data={entrega['data']} 
+                                data={entrega['data']} 
                                 totalEntregas={entrega['QtdEntregas']}
                                 totalTaxas={entrega['saldofinal']}
                                 diaria={entrega['diaria']}

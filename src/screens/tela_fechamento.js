@@ -22,7 +22,9 @@ function Close() {
         saldofinal = saldofinal + parseFloat(e['valorTaxa'])
         caixinha = caixinha + parseFloat(e['caixinha'])
     } )
-   
+    const data = new Date()
+    const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
+    const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}`
     return <div className="container">
         <header>
             <h1>Fechamento</h1>
@@ -46,13 +48,13 @@ function Close() {
                              }
                              
                              historicos.push(
-                                 {
+                                 {  "data": dataAtual,
                                      "id":id, 
-                                     "QtdEntregas": soma, 
-                                     "saldofinal": saldofinal, 
-                                     "diaria": diaria, 
-                                     "caixinha": caixinha, 
-                                     "totalReceber":(saldofinal + diaria + caixinha) 
+                                     "QtdEntregas": parseFloat(soma.toFixed(2)), 
+                                     "saldofinal": parseFloat(saldofinal.toFixed(2)), 
+                                     "diaria": parseFloat(diaria.toFixed(2)), 
+                                     "caixinha": parseFloat(caixinha.toFixed(2)), 
+                                     "totalReceber":parseFloat((saldofinal + diaria + caixinha).toFixed(2))
                                 }
                             )
                              localStorage.removeItem('historicos')
@@ -62,13 +64,14 @@ function Close() {
                          else{
                              id++
                              historicos.push(
-                                 {
+                                 {  
+                                     "data": dataAtual,
                                      "id":id, 
-                                     "QtdEntregas": soma, 
-                                     "saldofinal": saldofinal, 
-                                     "diaria": diaria, 
-                                     "caixinha": caixinha, 
-                                     "totalReceber":(saldofinal + diaria + caixinha)
+                                     "QtdEntregas": parseFloat(soma.toFixed(2)), 
+                                     "saldofinal": parseFloat(saldofinal.toFixed(2)), 
+                                     "diaria": parseFloat(diaria.toFixed(2)), 
+                                     "caixinha": parseFloat(caixinha.toFixed(2)), 
+                                     "totalReceber":parseFloat((saldofinal + diaria + caixinha).toFixed(2))
                                     }
                                 )
 
@@ -83,6 +86,7 @@ function Close() {
             </header>
         
             <div className="fechamento">
+            <h2>{dataAtual}</h2>
             <h2>{`Total entregas: ${soma}`}</h2>
             <h2>{`Total taxas: R$ ${(saldofinal).toFixed(2)}`}</h2>
             <h2>{`Total caixinhas: R$ ${(caixinha).toFixed(2)}`}</h2>
