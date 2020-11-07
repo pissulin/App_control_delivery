@@ -10,7 +10,7 @@ let entrega = []
 let id = 0;
 
 function Controle () {
-    const data =  new Date()
+    const data =  new Date().getTimezoneOffset()
     const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
 
     const [numComanda, setNumComanda] = useState('')
