@@ -17,6 +17,7 @@ function Controle () {
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
     const [caixinha, setCaixinha] = useState('')
+    const [diaria, setDiaria] = useState(0)
 
    function handleSubmit(event){
         event.preventDefault()
@@ -96,6 +97,21 @@ function Controle () {
             <h1>Controle diário</h1>
             <p className='dataatual'>{dataAtual}</p>
             <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
+
+            <div className='formulario'>
+                <label htmlFor= "diaria">Diária</label>
+                <input 
+                    id="diaria" 
+                    value={diaria} 
+                    onChange={event => setDiaria(event.target.value)}
+                    maxLength={10}
+                    autoComplete={false}
+                    autoFocus={true}
+                    inputMode="numeric" />
+                    <div id="alerta" className="hidden">Campo obrigatório</div>
+                    <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
+            </div>
+
                 <div className='formulario'>
                 <label htmlFor= "numComanda">Número da comanda</label>
                 <input 
