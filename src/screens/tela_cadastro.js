@@ -6,7 +6,7 @@ import './tela_cadastro.css'
 function Cadastro(){
 
     const [nomePizzaria, setNomePizzaria] = useState('')
-    const [diaria, setDiario] = useState('')
+    const [diaria, setDiaria] = useState('')
 
     return (
         <form className="form" onSubmit={()=> {return}} autoComplete={"false"}>
