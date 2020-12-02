@@ -14,7 +14,7 @@ function Cadastro(){
                 <input 
                     id="nomePizzaria" 
                     value={nomePizzaria} 
-                    onChange={event => setPizzaria(event.target.value)}
+                    onChange={event => setNomePizzaria(event.target.value)}
                     maxLength={10}
                     autoComplete={false}
                     autoFocus={true}
