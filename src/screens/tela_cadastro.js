@@ -4,7 +4,9 @@ import './tela_cadastro.css'
 
 function Cadastro(){
     return (
-        <div>Cadastro</div>
+        <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
+            <h1>Formulario aqui</h1>
+        </form>
     )
 }
 
