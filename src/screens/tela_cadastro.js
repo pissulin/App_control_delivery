@@ -10,18 +10,18 @@ function Cadastro(){
 
     return (
         <form className="form" onSubmit={()=> {return}} autoComplete={"false"}>
-            <label htmlFor= "NomePizzaria">Noma da pizzaria</label>
+            <label htmlFor= "NomePizzaria">Nome da pizzaria</label>
                 <input 
                     id="nomePizzaria" 
                     value={nomePizzaria} 
                     onChange={event => setNomePizzaria(event.target.value)}
-                    maxLength={10}
+                    maxLength={250}
                     autoComplete={false}
                     autoFocus={true}
                     inputMode="text" 
                 />
 
-            <label htmlFor= "NomePizzaria">Noma da pizzaria</label>
+            <label htmlFor= "NomePizzaria">Diária</label>
                 <input 
                     id="diaria" 
                     value={diaria} 
@@ -31,7 +31,12 @@ function Cadastro(){
                     autoFocus={true}
                     inputMode="numeric" 
                 />
-
+            <button   
+                className="submit" 
+                type="submit"
+            >
+             Salvar
+            </button>
         </form>  
     )
 }
