@@ -15,7 +15,7 @@ function Routes(){
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path='cadastro' component={Cadastro} />
+                <Route path='/cadastro' component={Cadastro} />
                 <Route path="/controle" component={Controle} />
                 <Route path="/historico" component={Historico} />
                 <Route path="/fechamento" component={Fechamento} />
