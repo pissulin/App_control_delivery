@@ -1,5 +1,7 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
+
+import db from '../db/db'
 //import {Link} from 'react-router-dom'
 
 import './tela_cadastro.css'
@@ -36,14 +38,12 @@ import './tela_cadastro.css'
         font-weight:bold;
         &:focus {
             outline: none;
-            background-color: rgba(0,0,0,0.8)
+            background-color: rgba(0,0,0,0.6)
           }
     `
 
-
 function Cadastro(){
 
- 
     const [nomePizzaria, setNomePizzaria] = useState('')
     const [diaria, setDiaria] = useState('')
 
@@ -65,6 +65,15 @@ function Cadastro(){
         document.getElementById('nomePizzaria').value='';
         document.getElementById('diaria').value='';
 
+        if(db.getStorage('estabelecimentos')){
+            let db_estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
+            db_estabelecimentos.push({estabelecimento:nomePizzaria, diaria:diaria})
+            console.log(db_estabelecimentos)
+            db.setStorage('estabelecimentos',JSON.stringify(db_estabelecimentos))
+        }else {
+            db.setStorage('estabelecimentos',JSON.stringify([{estabelecimento:nomePizzaria, diaria:diaria}]))
+        }
+        
     }
 
 
@@ -72,7 +81,7 @@ function Cadastro(){
             <form className="container-cadastro" onSubmit={handleSubmit} autoComplete='off'>
                 <ContainerFormulario>
                 <div className= 'container-formulario'>
-                <Label htmlFor= "NomePizzaria">Nome da pizzaria</Label>
+                <Label htmlFor= "NomePizzaria">Nome do estabelecimento</Label>
                     <Input
                     className='input-form'
                     id="nomePizzaria" 
