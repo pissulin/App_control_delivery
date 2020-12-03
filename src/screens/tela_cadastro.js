@@ -9,7 +9,8 @@ import './tela_cadastro.css'
         height: 30px;
         background-color: transparent;
         border-bottom: solid 2px rgba(255,255,255,0.4);
-        margin-bottom: 20px;
+        
+        margin:5px 0 50px;
         &:focus {
             outline: none;
           }
@@ -26,10 +27,11 @@ import './tela_cadastro.css'
         color: white;
         background-color: black;
         padding: 10px;
-        
+        width: 100px;
+
         &:focus {
             outline: none;
-            border: solid 1px rgba(255,255,255,0.6)
+            background-color: rgba(0,0,0,0.8)
           }
     `
 
@@ -85,7 +87,6 @@ function Cadastro(){
                         value={diaria} 
                         onChange={event => setDiaria(event.target.value)}
                         maxLength={10}
-                        autoFocus={true}
                         inputMode="numeric" 
                     >
                     
