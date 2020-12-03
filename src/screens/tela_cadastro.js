@@ -4,6 +4,11 @@ import styled from 'styled-components';
 
 import './tela_cadastro.css'
 
+   const Label = styled.label`
+    font-size: 20px;
+    font-weight:bold;
+    color: white;
+   `
    const Input = styled.input`
         width: 70%;
         height: 30px;
@@ -28,7 +33,7 @@ import './tela_cadastro.css'
         background-color: black;
         padding: 10px;
         width: 100px;
-
+        font-weight:bold;
         &:focus {
             outline: none;
             background-color: rgba(0,0,0,0.8)
@@ -67,7 +72,7 @@ function Cadastro(){
             <form className="container-cadastro" onSubmit={handleSubmit} autoComplete='off'>
                 <ContainerFormulario>
                 <div className= 'container-formulario'>
-                <label htmlFor= "NomePizzaria">Nome da pizzaria</label>
+                <Label htmlFor= "NomePizzaria">Nome da pizzaria</Label>
                     <Input
                     className='input-form'
                     id="nomePizzaria" 
@@ -80,7 +85,7 @@ function Cadastro(){
                     </Input>
                     
     
-                <label htmlFor= "NomePizzaria">Diária</label>
+                <Label htmlFor= "NomePizzaria">Diária</Label>
                     <Input
                         className='input-form'
                         id="diaria" 
