@@ -2,14 +2,17 @@ import {React, useState} from 'react'
 import styled from 'styled-components';
 //import {Link} from 'react-router-dom'
 
-//import './tela_cadastro.css'
+import './tela_cadastro.css'
 
    const Input = styled.input`
-        width: 100px;
+        width: 70%;
         height: 30px;
         background-color: transparent;
-        border-bottom: solid 2px white;
+        border-bottom: solid 2px rgba(255,255,255,0.4);
         margin-bottom: 20px;
+        &:focus {
+            outline: none;
+          }
     `
     const ContainerFormulario = styled.div`
         .container-formulario{
@@ -17,6 +20,17 @@ import styled from 'styled-components';
             flex-direction: column;
             align-items: center;
         }
+    `
+
+    const Submit = styled.button`
+        color: white;
+        background-color: black;
+        padding: 10px;
+        
+        &:focus {
+            outline: none;
+            border: solid 1px rgba(255,255,255,0.6)
+          }
     `
 
 
@@ -76,12 +90,12 @@ function Cadastro(){
                     >
                     
                     </Input>
-                <button   
+                <Submit   
                     className="submit-formulario" 
                     type="submit"
                     >
                     SALVAR
-                </button>
+                </Submit>
                 </div>
                 </ContainerFormulario>
                 
