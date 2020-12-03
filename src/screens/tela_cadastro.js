@@ -1,9 +1,29 @@
 import {React, useState} from 'react'
-import {Link} from 'react-router-dom'
+import styled from 'styled-components';
+//import {Link} from 'react-router-dom'
 
-import './tela_cadastro.css'
+//import './tela_cadastro.css'
 
 function Cadastro(){
+
+    const Input = styled.input`
+        width: 100px;
+        height: 30px;
+        background-color: transparent;
+        border-bottom: solid 2px white;
+        margin-bottom: 20px;
+        
+
+    `
+    const ContainerFormulario = styled.div`
+        .container-formulario{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    `
+
+
 
     const [nomePizzaria, setNomePizzaria] = useState('')
     const [diaria, setDiaria] = useState('')
@@ -14,36 +34,40 @@ function Cadastro(){
         const regexValidaInput = RegExp(/^[,.]/g)
          
         if(regexValidaInput.test(nomePizzaria)){
-            
-            return alert('Deu certo')
+            alert('Deu certo')
+            return 
         }
 
         if(regexValidaInput.test(diaria) ){
-           
-            return  alert('Deu certo')
+            alert('Deu certo')
+            return  
         } 
 
-            document.getElementById('nomePizzaria').value='';
-            document.getElementById('diaria').value='';
+        document.getElementById('nomePizzaria').value='';
+        document.getElementById('diaria').value='';
 
-        }
+    }
 
 
         return (
-            <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
+            <form className="container-cadastro" onSubmit={handleSubmit} autoComplete={"false"}>
+                <ContainerFormulario>
+                <div className= 'container-formulario'>
                 <label htmlFor= "NomePizzaria">Nome da pizzaria</label>
-                    <input 
+                    <Input
                         id="nomePizzaria" 
                         value={nomePizzaria} 
                         onChange={event => setNomePizzaria(event.target.value)}
                         maxLength={250}
                         autoComplete={false}
                         autoFocus={true}
-                        inputMode="text" 
-                    />
+                        inputMode="text"
+                    >
+                    </Input>
+                    
     
                 <label htmlFor= "NomePizzaria">Diária</label>
-                    <input 
+                    <Input 
                         id="diaria" 
                         value={diaria} 
                         onChange={event => setDiaria(event.target.value)}
@@ -51,19 +75,21 @@ function Cadastro(){
                         autoComplete={false}
                         autoFocus={true}
                         inputMode="numeric" 
-                    />
+                    >
+                    </Input>
                 <button   
-                    className="submit" 
+                    className="submit-formulario" 
                     type="submit"
-                >
-                 Salvar
+                    >
+                    SALVAR
                 </button>
+                </div>
+                </ContainerFormulario>
+                
             </form>  
         )
 
-    }
-
-    
+}
 
 
 
