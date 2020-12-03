@@ -4,16 +4,12 @@ import styled from 'styled-components';
 
 //import './tela_cadastro.css'
 
-function Cadastro(){
-
-    const Input = styled.input`
+   const Input = styled.input`
         width: 100px;
         height: 30px;
         background-color: transparent;
         border-bottom: solid 2px white;
         margin-bottom: 20px;
-        
-
     `
     const ContainerFormulario = styled.div`
         .container-formulario{
@@ -24,7 +20,9 @@ function Cadastro(){
     `
 
 
+function Cadastro(){
 
+ 
     const [nomePizzaria, setNomePizzaria] = useState('')
     const [diaria, setDiaria] = useState('')
 
@@ -35,12 +33,12 @@ function Cadastro(){
          
         if(regexValidaInput.test(nomePizzaria)){
             alert('Deu certo')
-            return 
+            
         }
 
         if(regexValidaInput.test(diaria) ){
             alert('Deu certo')
-            return  
+            
         } 
 
         document.getElementById('nomePizzaria').value='';
@@ -50,32 +48,33 @@ function Cadastro(){
 
 
         return (
-            <form className="container-cadastro" onSubmit={handleSubmit} autoComplete={"false"}>
+            <form className="container-cadastro" onSubmit={handleSubmit} autoComplete='off'>
                 <ContainerFormulario>
                 <div className= 'container-formulario'>
                 <label htmlFor= "NomePizzaria">Nome da pizzaria</label>
                     <Input
-                        id="nomePizzaria" 
-                        value={nomePizzaria} 
-                        onChange={event => setNomePizzaria(event.target.value)}
-                        maxLength={250}
-                        autoComplete={false}
-                        autoFocus={true}
-                        inputMode="text"
+                    className='input-form'
+                    id="nomePizzaria" 
+                    value={nomePizzaria} 
+                    onChange={event => setNomePizzaria(event.target.value)}
+                    maxLength={100}
+                    autoFocus={true}
+                    inputMode="text"
                     >
                     </Input>
                     
     
                 <label htmlFor= "NomePizzaria">Diária</label>
-                    <Input 
+                    <Input
+                        className='input-form'
                         id="diaria" 
                         value={diaria} 
                         onChange={event => setDiaria(event.target.value)}
                         maxLength={10}
-                        autoComplete={false}
                         autoFocus={true}
                         inputMode="numeric" 
                     >
+                    
                     </Input>
                 <button   
                     className="submit-formulario" 
