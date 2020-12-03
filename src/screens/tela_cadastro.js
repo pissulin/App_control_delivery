@@ -10,7 +10,7 @@ import './tela_cadastro.css'
         background-color: transparent;
         border-bottom: solid 2px rgba(255,255,255,0.4);
         
-        margin:5px 0 50px;
+        margin:15px 0 50px;
         &:focus {
             outline: none;
           }
