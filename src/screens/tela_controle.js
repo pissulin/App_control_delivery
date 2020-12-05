@@ -1,6 +1,7 @@
 import {React, useState} from 'react'
 import {Link} from 'react-router-dom'
 import Menu from '../components/Menu'
+import styled from 'styled-components';
 
 import './tela_controle.css'
 
@@ -8,6 +9,43 @@ import {FiArrowRightCircle} from 'react-icons/fi'
 
 let entrega = []
 let id = 0;
+
+
+const Label = styled.label`
+    font-size: 20px;
+    font-weight:bold;
+    color: white;
+   `
+   const Input = styled.input`
+        width: 70%;
+        height: 30px;
+        background-color: transparent;
+        border-bottom: solid 2px rgba(255,255,255,0.4);
+        
+        margin:15px 0 50px;
+        &:focus {
+            outline: none;
+          }
+    `
+    const ContainerFormulario = styled.div`
+    .container-formulario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+`
+
+const Submit = styled.button`
+    color: white;
+    background-color: black;
+    padding: 10px;
+    width: 100px;
+    font-weight:bold;
+    &:focus {
+        outline: none;
+        background-color: rgba(0,0,0,0.6)
+      }
+`
 
 function Controle () {
     const data = new Date()
@@ -97,68 +135,60 @@ function Controle () {
             <Menu />
             <h1>Controle diário</h1>
             <p className='dataatual'>{dataAtual}</p>
+            <ContainerFormulario>
             <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
+            
+            <div className='formulario'>
 
-                <div className='formulario'>
+            <Label htmlFor= "numComanda">Número da comanda</Label>
+            <Input 
+                id="numComanda" 
+                value={numComanda} 
+                onChange={event => setNumComanda(event.target.value)}
+                maxLength={10}
+                autoComplete={false}
+                autoFocus={true}
+                inputMode="numeric" >
+    
+            </Input>
+                <div id="alerta" className="hidden">Campo obrigatório</div>
+                <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
 
-                <label htmlFor= "diaria">Diária</label>
-                <input 
-                    id="diaria" 
-                    value={diaria} 
-                    onChange={event => setDiaria(event.target.value)}
-                    maxLength={10}
-                    autoComplete={false}
-                    autoFocus={true}
-                    inputMode="numeric" />
-                    <div id="alerta" className="hidden">Campo obrigatório</div>
-                    <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
+                        <div className="inputValores">
+                            <Label htmlFor= "taxa">Valor da taxa</Label>
+                            <Input 
+                                id="taxa" 
+                                value={valorTaxa}
+                                onChange={event => setValorTaxa(event.target.value)}
+                                maxLength={5}
+                                inputMode="numeric" >
 
-                <label htmlFor= "numComanda">Número da comanda</label>
-                <input 
-                    id="numComanda" 
-                    value={numComanda} 
-                    onChange={event => setNumComanda(event.target.value)}
-                    maxLength={10}
-                    autoComplete={false}
-                    autoFocus={true}
-                    inputMode="numeric" />
-                    <div id="alerta" className="hidden">Campo obrigatório</div>
-                    <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
-            </div>
-                
-                        <div className='formulario'>
-                        <div className="containerInputValores">
-                            <div className="inputValores">
-                                <label htmlFor= "taxa">Valor da taxa</label>
-                                <input 
-                                    id="taxa" 
-                                    value={valorTaxa}
-                                    onChange={event => setValorTaxa(event.target.value)}
-                                    maxLength={5}
-                                    inputMode="numeric" />
-                            </div>
-                            <div className="inputValores">
-                                <label htmlFor= "caixinha">Caixinha</label>
-                                <input 
-                                    id="caixinha" 
-                                    value={caixinha}
-                                    onChange={event => setCaixinha(event.target.value)}
-                                    maxLength={5}
-                                    inputMode="numeric" />
-                            </div>
-                    </div>
-                    
-                
-                    <div id="alerta" className="hidden">Campo obrigatório</div>
-                    <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
-            </div>
-                <button   
-                    className="submit" 
-                    type="submit"
-                >
-                    Salvar
-                </button>
-            </form>
+                            </Input>
+                        </div>
+                        <div className="inputValores">
+                            <Label htmlFor= "caixinha">Caixinha</Label>
+                            <Input 
+                                id="caixinha" 
+                                value={caixinha}
+                                onChange={event => setCaixinha(event.target.value)}
+                                maxLength={5}
+                                inputMode="numeric" >
+
+                            </Input>
+                        </div>
+
+                <div id="alerta" className="hidden">Campo obrigatório</div>
+                <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
+                </div>
+            <Submit   
+                className="submit" 
+                type="submit"
+            >
+                Salvar
+            </Submit>
+        </form>
+            </ContainerFormulario>
+            
         </div>
         
     )

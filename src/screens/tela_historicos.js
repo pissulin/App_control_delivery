@@ -48,6 +48,7 @@ function HistoricosSalvos(){
         
             return (
                 <div className="container">
+                    <Menu />
                     <h1>Históricos salvos</h1>
                     <div className="mensagem">
                     

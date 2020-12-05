@@ -1,6 +1,13 @@
-import React from 'react'
+import {React, useState} from 'react'
 import styled from 'styled-components';
-import {FaFax, FaFileInvoiceDollar, FaHandHoldingUsd, FaEdit} from 'react-icons/fa'
+import {
+  FaFax, 
+  FaFileInvoiceDollar, 
+  FaHandHoldingUsd, 
+  FaEdit, 
+  FaHome,
+  FaChartPie
+} from 'react-icons/fa'
 
 
 const ContainerMenu = styled.div`
@@ -13,19 +20,32 @@ const ContainerMenu = styled.div`
   bottom: 0;
   padding: 10px 0
 `
+const Link = styled.a`
 
-function Menu(){
-  
+  background-color: white;
+  color: black
+
+`
+
+function Menu(props){
+
+
   return (
     <ContainerMenu>
+      <a href='/'>
+        <FaHome size={24} color={'white'}/>
+      </a>
       <a href='/controle'>
         <FaFax size={24} color={'white'}/>
+      </a>
+      <a href='/historico'>
+        <FaFileInvoiceDollar size={24} color={'white'} />
       </a>
       <a href='/fechamento'>
         <FaHandHoldingUsd size={24} color={'white'} />
       </a>
-      <a href='/historico'>
-        <FaFileInvoiceDollar size={24} color={'white'} />
+      <a href='/historicos'>
+       <FaChartPie size={24} color={'white'} />
       </a>
       <a href='/cadastro'>
        <FaEdit size={24} color={'white'} />
