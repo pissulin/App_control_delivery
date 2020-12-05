@@ -96,14 +96,7 @@ function Close() {
             <h2>{`Total a receber R$ ${(saldofinal + diaria + caixinha).toFixed(2)}`}</h2>
         </div>
         
-        <div className="setas">
-            <Link to='/historico' title="historico">
-                <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-            </Link>
-            <Link to='/historicos' title="historico">
-                <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-            </Link>
-        </div>
+       
     </div>
        
     } catch (error) {
