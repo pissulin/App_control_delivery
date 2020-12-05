@@ -159,12 +159,6 @@ function Controle () {
                     Salvar
                 </button>
             </form>
-            
-              
-
-            <Link to='/historico' title="historico">
-                <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-            </Link>
         </div>
         
     )

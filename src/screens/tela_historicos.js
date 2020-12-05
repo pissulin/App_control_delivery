@@ -39,14 +39,7 @@ function HistoricosSalvos(){
                                 totalReceber={entrega['totalReceber']}
                             />
                 })}  
-                <div className="setas fixo">
-                    <Link to='/fechamento' title="fechamento">
-                        <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-                    </Link>
-                    <Link to='/' title="home">
-                        <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-                    </Link>
-                </div>
+                
             </div>
             
         )
@@ -60,15 +53,7 @@ function HistoricosSalvos(){
                     
                         <h1>Você não tem histórico salvo</h1>
                     </div>
-                    
-                    <div className="setas fixo">
-                        <Link to='/fechamento' title="historico">
-                            <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-                        </Link>
-                        <Link to='/' title="home">
-                            <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-                        </Link>
-                    </div>
+                
                 </div>
                 
             )

@@ -41,14 +41,7 @@ export default function Historico() {
                             caixinha={entrega['caixinha']} />
                 })}      
             </div>
-            <div className="setas">
-                <Link to='/controle' title="controle">
-                    <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-                </Link>
-                <Link to='/fechamento' title="fechamento">
-                    <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-                </Link>
-            </div>
+
         </div>
     )
 
@@ -64,14 +57,7 @@ export default function Historico() {
                 <div id= "rows" className='rows'>
                         
                 </div>
-                <div className="setas">
-                    <Link to='/controle' title="controle">
-                        <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-                    </Link>
-                    <Link to='/fechamento' title="fechamento">
-                        <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-                    </Link>
-                </div>
+                
             </div>
         )
     }
