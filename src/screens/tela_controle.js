@@ -48,9 +48,9 @@ const Submit = styled.button`
 `
 
 function Controle () {
-    const data = new Date()
-    const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
-    const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
+    //const data = new Date()
+    //const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
+    //const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
 
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
@@ -131,10 +131,9 @@ function Controle () {
 
     return (
         
-        <div className='container'>
+        <div className='containerControle'>
             <Menu />
-            <h1>Controle diário</h1>
-            <p className='dataatual'>{dataAtual}</p>
+            
             <ContainerFormulario>
             <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
             
