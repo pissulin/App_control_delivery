@@ -9,7 +9,7 @@ const ContainerMenu = styled.div`
   position: fixed;
   width: 100%;
   text-align: center;
-  background-color: mediumslateblue;
+  background-color: black;
   top: 0;
   padding: 10px 0
 `
