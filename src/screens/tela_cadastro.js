@@ -1,10 +1,10 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
+import Menu from '../components/Menu'
 
 import db from '../db/db'
 //import {Link} from 'react-router-dom'
 
-import './tela_cadastro.css'
 
    const Label = styled.label`
     font-size: 20px;
@@ -78,6 +78,8 @@ function Cadastro(){
 
 
         return (
+            <>
+            <Menu />
             <form className="container-cadastro" onSubmit={handleSubmit} autoComplete='off'>
                 <ContainerFormulario>
                 <div className= 'container-formulario'>
@@ -94,7 +96,7 @@ function Cadastro(){
                     </Input>
                     
     
-                <Label htmlFor= "NomePizzaria">Diária</Label>
+                <Label htmlFor= "diaria">Diária</Label>
                     <Input
                         className='input-form'
                         id="diaria" 
@@ -115,6 +117,7 @@ function Cadastro(){
                 </ContainerFormulario>
                 
             </form>  
+            </>
         )
 
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Menu from '../components/Menu'
 
 import {FiArrowLeftCircle, FiArrowRightCircle,FiSave} from 'react-icons/fi'
 
@@ -26,6 +27,7 @@ function Close() {
     const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
     const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}`
     return <div className="container">
+        <Menu />
         <header>
             <h1>Fechamento</h1>
                 <button disabled={false} onClick={function(){
@@ -106,6 +108,7 @@ function Close() {
        
     } catch (error) {
         return <div className="container">
+         <Menu />   
          <header>
             <h1>Fechamento</h1>
                 <button onClick={function(){

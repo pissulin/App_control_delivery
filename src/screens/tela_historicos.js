@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Menu from '../components/Menu'
 
 import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw, FiTrash} from 'react-icons/fi'
 
@@ -16,6 +17,7 @@ function HistoricosSalvos(){
 
         return (
             <div className="container">
+              <Menu />  
             <header>
             <h1>Históricos salvos</h1> 
              <button onClick={function(){

@@ -1,6 +1,7 @@
 import {React} from 'react'
 import {Link} from 'react-router-dom'
 import Row from '../components/RowHistorico'
+import Menu from '../components/Menu'
 
 import './tela_historico.css'
 
@@ -15,6 +16,7 @@ export default function Historico() {
     
     return (
         <div className="container">
+            <Menu />
             <header>
                 <h1 className="historico">Histórico</h1>
                 <button onClick={function(){
@@ -53,6 +55,7 @@ export default function Historico() {
     } catch (error) {
         return (
             <div className="container">
+                <Menu />
                 <header>
                     <h1 className="historico">Histórico</h1>
                     <button><FiRefreshCcw className="apagar" size={30} color={"white"} /></button>

@@ -1,6 +1,6 @@
 import {React, useState} from 'react'
 import {Link} from 'react-router-dom'
-
+import Menu from '../components/Menu'
 
 import './tela_controle.css'
 
@@ -94,6 +94,7 @@ function Controle () {
     return (
         
         <div className='container'>
+            <Menu />
             <h1>Controle diário</h1>
             <p className='dataatual'>{dataAtual}</p>
             <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
