@@ -135,7 +135,7 @@ function Controle () {
             <Menu />
             
             <ContainerFormulario>
-            <form className="form" onSubmit={handleSubmit} autoComplete={"false"}>
+            <form className="form" onSubmit={handleSubmit} autoComplete="off">
             
             <div className='formulario'>
 
@@ -145,7 +145,7 @@ function Controle () {
                 value={numComanda} 
                 onChange={event => setNumComanda(event.target.value)}
                 maxLength={10}
-                autoComplete={false}
+                autoComplete="off"
                 autoFocus={true}
                 inputMode="numeric" >
     
@@ -160,8 +160,10 @@ function Controle () {
                                 value={valorTaxa}
                                 onChange={event => setValorTaxa(event.target.value)}
                                 maxLength={5}
-                                inputMode="numeric" >
-
+                                inputMode="numeric"
+                                autoComplete="off"
+                                >
+                                  
                             </Input>
                         </div>
                         <div className="inputValores">
@@ -171,7 +173,9 @@ function Controle () {
                                 value={caixinha}
                                 onChange={event => setCaixinha(event.target.value)}
                                 maxLength={5}
-                                inputMode="numeric" >
+                                inputMode="numeric"
+                                autoComplete="off"
+                                >
 
                             </Input>
                         </div>
