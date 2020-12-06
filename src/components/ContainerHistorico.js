@@ -4,7 +4,7 @@ import './ContainerHistorico.css';
 import {FiX} from 'react-icons/fi'
 
 function HistoricoSalvo(props){
-    return <div className="container">
+    return <div className="container-historico">
         
         <div className="container-filho">
         <FiX size={30} color="white" className="fechar" />

@@ -7,21 +7,10 @@
     top: 0;
     display: flex;
     justify-content: space-around;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    font-weight: 300;
+    border-bottom: dashed 1px black ;
+    justify-content: c;
+    flex-direction: column;
+    display: inline-block;
+ 
 }

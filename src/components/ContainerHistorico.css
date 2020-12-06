@@ -1,14 +1,24 @@
+
+.container-historico{
+    width: 98%;
+    height: 410px;
+    align-items: center;
+    justify-content: center;
+}
+
 .container-filho {
     background-color:rgba(255, 255, 255, 0.171);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px 0 60px;
+    margin: 15px auto;
     padding: 25px 20px;
     line-height: 3em;
     border-radius: 10px;
     min-width: 262px;
     position: relative;
+    z-index: -999;
+    
 }
 
 .container-filho h1 {
@@ -18,7 +28,8 @@
 }
 
 .fechar {
-    position: absolute;
-    top: 5px;
-    right: 7px;
+ position: absolute;
+ top: 0;
+ right: 0;
+ margin: 10px 10px 0 0;
 }
