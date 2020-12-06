@@ -58,20 +58,27 @@ const Fechamento = styled.div`
 `
 
 const estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
-const entregas = JSON.parse(db.getStorage('entregas'))
-
+const entregas = ()=> {
+  if(db.getStorage('entregas')){
+    return JSON.parse(db.getStorage('entregas'))
+  } else{
+    return null
+  }
+}
 let somaTaxas = 0 
 let somaCaixinha = 0
 
-entregas.map(e => {
-  somaTaxas += Number(e.valorTaxa)
-  somaCaixinha += Number(e.caixinha)
-})
+if(entregas()){
+  entregas().map(e => {
+    somaTaxas += Number(e.valorTaxa)
+    somaCaixinha += Number(e.caixinha)
+  })
+}
 
 
 
 const nomeEstabelecimento = estabelecimentos? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
-const taxa = estabelecimentos? estabelecimentos[0].diaria : "0.00"
+const taxa = estabelecimentos? estabelecimentos[0].diaria : 0
 
 const total = somaTaxas + somaCaixinha + Number(taxa)
 
@@ -97,13 +104,13 @@ function RelatorioTaxas(props){
       </Header>
       <Body>
 
-          {
-            entregas.map(e => 
+          { 
+            entregas()?.map(e => 
             <Item>
-              <SubTitulo>Nº {Number(e.numComanda)}</SubTitulo>
-              <SubTitulo>R$ {Number(e.valorTaxa).toFixed(2)}</SubTitulo>
-              <SubTitulo>R$ {Number(e.caixinha).toFixed(2)}</SubTitulo>
-              <SubTitulo>R$ {(Number(e.valorTaxa) + Number(e.caixinha)).toFixed(2)}</SubTitulo>
+              <SubTitulo>Nº { Number(e.numComanda)}</SubTitulo>
+              <SubTitulo>R$ { Number(e.valorTaxa).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ { Number(e.caixinha).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ { (Number(e.valorTaxa) + Number(e.caixinha)).toFixed(2)}</SubTitulo>
             </Item>
             )
           }   
@@ -111,7 +118,7 @@ function RelatorioTaxas(props){
         <BorderBottom/>
         <Fechamento>
         <Resumo>
-          <SubTitulo>Nº de entregas: {entregas.length}</SubTitulo>
+          <SubTitulo>Nº de entregas: {entregas().length}</SubTitulo>
           <SubTitulo>Taxas: R$ {somaTaxas.toFixed(2)}
           </SubTitulo>
             
