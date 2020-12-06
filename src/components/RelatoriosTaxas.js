@@ -105,7 +105,7 @@ function RelatorioTaxas(props){
       <Body>
 
           { 
-            entregas()!==[]?.map(e => 
+            entregas()?.map(e => 
             <Item>
               <SubTitulo>Nº { Number(e.numComanda)}</SubTitulo>
               <SubTitulo>R$ { Number(e.valorTaxa).toFixed(2)}</SubTitulo>
