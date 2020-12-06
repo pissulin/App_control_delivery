@@ -58,8 +58,8 @@ const Fechamento = styled.div`
 `
 
 const estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
-const nomeEstabelecimento = estabelecimentos[0].estabelecimento
-const taxa = estabelecimentos[0].diaria
+const nomeEstabelecimento = estabelecimentos? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
+const taxa = estabelecimentos? estabelecimentos[0].diaria : "0.00"
 
 const data = new Date()
 const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
