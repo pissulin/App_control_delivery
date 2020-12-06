@@ -62,13 +62,13 @@ const entregas = ()=> {
   if(db.getStorage('entregas')){
     return JSON.parse(db.getStorage('entregas'))
   } else{
-    return null
+    return []
   }
 }
 let somaTaxas = 0 
 let somaCaixinha = 0
 
-if(entregas()){
+if(entregas()!==[]){
   entregas().map(e => {
     somaTaxas += Number(e.valorTaxa)
     somaCaixinha += Number(e.caixinha)
@@ -105,7 +105,7 @@ function RelatorioTaxas(props){
       <Body>
 
           { 
-            entregas()?.map(e => 
+            entregas()!==[]?.map(e => 
             <Item>
               <SubTitulo>Nº { Number(e.numComanda)}</SubTitulo>
               <SubTitulo>R$ { Number(e.valorTaxa).toFixed(2)}</SubTitulo>
