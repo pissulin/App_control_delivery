@@ -58,8 +58,22 @@ const Fechamento = styled.div`
 `
 
 const estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
+const entregas = JSON.parse(db.getStorage('entregas'))
+
+let somaTaxas = 0 
+let somaCaixinha = 0
+
+entregas.map(e => {
+  somaTaxas += Number(e.valorTaxa)
+  somaCaixinha += Number(e.caixinha)
+})
+
+
+
 const nomeEstabelecimento = estabelecimentos? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
 const taxa = estabelecimentos? estabelecimentos[0].diaria : "0.00"
+
+const total = somaTaxas + somaCaixinha + Number(taxa)
 
 const data = new Date()
 const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
@@ -82,33 +96,31 @@ function RelatorioTaxas(props){
       <Titulo>Total</Titulo>
       </Header>
       <Body>
-        <Item>
-          <SubTitulo>Nº 01</SubTitulo>
-          <SubTitulo>R$ 08.00</SubTitulo>
-          <SubTitulo>R$ 02.50</SubTitulo>
-          <SubTitulo>R$ 10.50</SubTitulo>
-        </Item>
-        <Item>
-          <SubTitulo>Nº 02</SubTitulo>
-          <SubTitulo>R$ 06.00</SubTitulo>
-          <SubTitulo>R$ 02.00</SubTitulo>
-          <SubTitulo>R$ 08.00</SubTitulo>
-        </Item>
-        <Item>
-          <SubTitulo>Nº 03</SubTitulo>
-          <SubTitulo>R$ 08.00</SubTitulo>
-          <SubTitulo>R$ 02.50</SubTitulo>
-          <SubTitulo>R$ 10.50</SubTitulo>
-        </Item>
+        
+          {
+            entregas.map(e => 
+            <Item>
+              <SubTitulo>Nº {Number(e.numComanda)}</SubTitulo>
+              <SubTitulo>R$ {Number(e.valorTaxa).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ {Number(e.caixinha).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ {(Number(e.valorTaxa) + Number(e.caixinha)).toFixed(2)}</SubTitulo>
+            </Item>
+            )
+          }   
+            
+
         <BorderBottom/>
         <Fechamento>
         <Resumo>
-            <SubTitulo>Taxas: R$ 125.00</SubTitulo>
-            <SubTitulo>Caixinhas: R$ 08.00</SubTitulo>
-            <SubTitulo>Diária: R$ {taxa}</SubTitulo>
-          </Resumo>
+          <SubTitulo>Nº de entregas: {entregas.length}</SubTitulo>
+          <SubTitulo>Taxas: R$ {somaTaxas.toFixed(2)}
+          </SubTitulo>
+            
+        <SubTitulo>Caixinhas: R$ {somaCaixinha.toFixed(2)}</SubTitulo>
+          <SubTitulo>Diária: R$ {taxa}</SubTitulo>
+        </Resumo>
           <Total>
-           Total R$ 173.00
+           Total R$ {total.toFixed(2)}
           </Total>
         </Fechamento>
           <BorderBottom />
