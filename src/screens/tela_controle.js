@@ -130,9 +130,10 @@ function Controle () {
     }
 
     return (
-        
+        <>
+        <Menu />
         <div className='containerControle'>
-            <Menu />
+            
             
             <ContainerFormulario>
             <form className="form" onSubmit={handleSubmit} autoComplete="off">
@@ -193,7 +194,7 @@ function Controle () {
             </ContainerFormulario>
             
         </div>
-        
+        </>
     )
 }
 

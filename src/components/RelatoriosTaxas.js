@@ -1,5 +1,6 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
+import db from '../db/db'
 
 const pesoFonteTitulo = 'font-weight: 900'
 const pesoFonteSubTitulo = 'font-weight: 500'
@@ -56,9 +57,15 @@ const Fechamento = styled.div`
   justify-content: space-between
 `
 
-const nomeEstabelecimento = 'Buon Gusto'
-const data = '06/12/2020'
-const taxa = '40.00'  
+const estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
+const nomeEstabelecimento = estabelecimentos[0].estabelecimento
+const taxa = estabelecimentos[0].diaria
+
+const data = new Date()
+const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
+const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
+
+
 
 function RelatorioTaxas(props){
 
@@ -66,7 +73,7 @@ function RelatorioTaxas(props){
   return (
     <ContainerRelatorioTaxas>
       <Titulo>{nomeEstabelecimento}</Titulo>
-      <SubTitulo>Data: {data}</SubTitulo>
+      <SubTitulo>Data: {dataAtual}</SubTitulo>
       <BorderBottom/>
       <Header>
       <Titulo>Comanda</Titulo>
@@ -98,7 +105,7 @@ function RelatorioTaxas(props){
         <Resumo>
             <SubTitulo>Taxas: R$ 125.00</SubTitulo>
             <SubTitulo>Caixinhas: R$ 08.00</SubTitulo>
-            <SubTitulo>Diária: R$ 40.00</SubTitulo>
+            <SubTitulo>Diária: R$ {taxa}</SubTitulo>
           </Resumo>
           <Total>
            Total R$ 173.00
