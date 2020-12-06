@@ -96,7 +96,7 @@ function RelatorioTaxas(props){
       <Titulo>Total</Titulo>
       </Header>
       <Body>
-        
+
           {
             entregas.map(e => 
             <Item>
@@ -107,8 +107,7 @@ function RelatorioTaxas(props){
             </Item>
             )
           }   
-            
-
+ 
         <BorderBottom/>
         <Fechamento>
         <Resumo>
