@@ -43,9 +43,6 @@ function Menu(props){
       <a href='/historico'>
         <FaFileInvoiceDollar size={sizeIcon} color={colorIcon} />
       </a>
-      <a href='/fechamento'>
-        <FaHandHoldingUsd size={sizeIcon} color={colorIcon} />
-      </a>
       <a href='/historicos'>
        <FaChartPie size={sizeIcon} color={colorIcon} />
       </a>
