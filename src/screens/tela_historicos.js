@@ -33,7 +33,7 @@ function HistoricosSalvos(){
                     return <Historicos 
                                 data={entrega['data']} 
                                 totalEntregas={entrega['QtdEntregas']}
-                                totalTaxas={entrega['saldofinal']}
+                                totalTaxas={entrega['saldoTaxas']}
                                 diaria={entrega['diaria']}
                                 caixinha ={entrega['caixinha']}
                                 totalReceber={entrega['totalReceber']}

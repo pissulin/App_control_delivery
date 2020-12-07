@@ -1,6 +1,9 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
+import {
+  FaSave
+} from 'react-icons/fa'
 
 const pesoFonteTitulo = 'font-weight: 900'
 const pesoFonteSubTitulo = 'font-weight: 500'
@@ -56,6 +59,11 @@ const Fechamento = styled.div`
   align-items: center;
   justify-content: space-between
 `
+const Cabecalho = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 
 const estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
 const entregas = ()=> {
@@ -65,8 +73,8 @@ const entregas = ()=> {
     return []
   }
 }
-let somaTaxas = 0 
-let somaCaixinha = 0
+let somaTaxas = 0.00 
+let somaCaixinha = 0.00
 
 if(entregas()!==[]){
   entregas().map(e => {
@@ -78,7 +86,7 @@ if(entregas()!==[]){
 
 
 const nomeEstabelecimento = estabelecimentos? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
-const taxa = estabelecimentos? estabelecimentos[0].diaria : 0
+const taxa = estabelecimentos? parseFloat(estabelecimentos[0].diaria) : 0.00
 
 const total = somaTaxas + somaCaixinha + Number(taxa)
 
@@ -86,15 +94,77 @@ const data = new Date()
 const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
 const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 
 
-
+let historicos = []
+let id = 0
 
 function RelatorioTaxas(props){
 
 
   return (
     <ContainerRelatorioTaxas>
-      <Titulo>{nomeEstabelecimento}</Titulo>
-      <SubTitulo>Data: {dataAtual}</SubTitulo>
+      <Cabecalho>
+        <div>
+          <Titulo>{nomeEstabelecimento}</Titulo>
+          <SubTitulo>Data: {dataAtual}</SubTitulo>
+        </div>
+        <button disabled={false} onClick={function(){
+                    if (window.confirm("Salvar agora?")) { 
+                        
+                        if(localStorage.getItem('historicos')){
+                            let arrayHistoricos= JSON.parse(localStorage['historicos'])
+                            
+                           historicos = []
+                            
+                            arrayHistoricos.map(e=> {
+                                historicos.push(e)
+                                
+                             })
+                             if(historicos.length === 1){
+                                 id += historicos.length
+                             }else{
+                                 id = 0
+                                 id = historicos.length + 1
+                             }
+                             
+                             historicos.push(
+                                 {  "data": dataAtual,
+                                 "nomeEstabelecimento": nomeEstabelecimento ,
+                                     "id":id, 
+                                     "QtdEntregas":  entregas().length, 
+                                     "saldoTaxas": somaTaxas, 
+                                     "diaria": taxa, 
+                                     "caixinha": somaCaixinha, 
+                                     "totalReceber": total
+                                }
+                            )
+                             localStorage.removeItem('historicos')
+                             localStorage.setItem('historicos', JSON.stringify(historicos))
+                             
+                         }
+                         else{
+                             id++
+                             historicos.push(
+                              {  "data": dataAtual,
+                              "nomeEstabelecimento": nomeEstabelecimento ,
+                                  "id":id, 
+                                  "QtdEntregas":  entregas().length, 
+                                  "saldoTaxas": somaTaxas.toFixed(2), 
+                                  "diaria": taxa.toFixed(2), 
+                                  "caixinha": somaCaixinha.toFixed(2), 
+                                  "totalReceber": total.toFixed(2)
+                             }
+                                )
+
+                             localStorage.setItem('historicos', JSON.stringify(historicos))
+                             
+                         }
+                         localStorage.removeItem('entregas')
+                        setInterval(() => window.location.reload(),900)
+                    }
+    
+                }} ><FaSave className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb' } } /></button>
+      </Cabecalho>
+      
       <BorderBottom/>
       <Header>
       <Titulo>Comanda</Titulo>
@@ -107,10 +177,10 @@ function RelatorioTaxas(props){
           { 
             entregas()?.map(e => 
             <Item>
-              <SubTitulo>Nº { Number(e.numComanda)}</SubTitulo>
-              <SubTitulo>R$ { Number(e.valorTaxa).toFixed(2)}</SubTitulo>
-              <SubTitulo>R$ { Number(e.caixinha).toFixed(2)}</SubTitulo>
-              <SubTitulo>R$ { (Number(e.valorTaxa) + Number(e.caixinha)).toFixed(2)}</SubTitulo>
+              <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>
+              <SubTitulo>R$ { parseInt(e.valorTaxa) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.valorTaxa).toFixed(2)}`:parseFloat(e.valorTaxa).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ { parseInt(e.caixinha) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.caixinha).toFixed(2)}`:parseFloat(e.caixinha).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ { parseInt((parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)) in [1,2,3,4,5,6,7,8,9]? `0${(parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)}`: (parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)}</SubTitulo>
             </Item>
             )
           }   
@@ -118,12 +188,12 @@ function RelatorioTaxas(props){
         <BorderBottom/>
         <Fechamento>
         <Resumo>
-          <SubTitulo>Nº de entregas: {entregas().length}</SubTitulo>
+          <SubTitulo>Nº de entregas: { entregas().length}</SubTitulo>
           <SubTitulo>Taxas: R$ {somaTaxas.toFixed(2)}
           </SubTitulo>
             
         <SubTitulo>Caixinhas: R$ {somaCaixinha.toFixed(2)}</SubTitulo>
-          <SubTitulo>Diária: R$ {taxa}</SubTitulo>
+          <SubTitulo>Diária: R$ {taxa.toFixed(2)}</SubTitulo>
         </Resumo>
           <Total>
            Total R$ {total.toFixed(2)}
@@ -131,7 +201,7 @@ function RelatorioTaxas(props){
         </Fechamento>
           <BorderBottom />
       </Body>
-
+      
     </ContainerRelatorioTaxas>
   )
 }
