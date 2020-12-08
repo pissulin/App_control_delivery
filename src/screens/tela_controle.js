@@ -51,10 +51,9 @@ const Submit = styled.button`
 const Select = styled.select`
       width: 150px;
       background-color: transparent;
-      color: white;
       border: 1px solid white;
       border-radius: 10px;
-      padding-left: 10px;
+      padding: 5px 5px 5px 10px ;
       margin: 10px 0 30px 0
 
 `
