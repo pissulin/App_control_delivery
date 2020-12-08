@@ -48,6 +48,16 @@ const Submit = styled.button`
       }
 `
 
+const Select = styled.select`
+      width: 150px;
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+      border-radius: 10px;
+      padding-left: 10px;
+      margin: 10px 0 30px 0
+
+`
 
 function Controle () {
     //const data = new Date()
@@ -155,10 +165,10 @@ function Controle () {
             <div className='formulario'>
 
             <Label htmlFor= 'nomeEstabelecimento'>Estabelecimento</Label>    
-            <select id ='nomeEstabelecimento' value={estabelecimento} onChange={handleOption}>
+            <Select id ='nomeEstabelecimento' value={estabelecimento} onChange={handleOption}>
                 <option value= {estabelecimento}>{estabelecimento}</option>
                 {arrayPizzaria.map(e =><option value= {e}>{e}</option>)}
-            </select>
+            </Select>
 
             <Label htmlFor= "numComanda">Número da comanda</Label>
             <Input 

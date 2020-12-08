@@ -159,7 +159,7 @@ function RelatorioTaxas(props){
                                   "id":id, 
                                   "QtdEntregas":  entregas().length, 
                                   "saldoTaxas": somaTaxas.toFixed(2), 
-                                  "diaria": taxa.toFixed(2), 
+                                  "diaria": taxa, 
                                   "caixinha": somaCaixinha.toFixed(2), 
                                   "totalReceber": total.toFixed(2)
                              }
