@@ -93,7 +93,6 @@ if(entregas()!==[]){
   }else{
     return {"diaria": 0.00, "nome": "Sem nome"}
   }
-  
 }
 
 const nomeEstabelecimento = getTaxa(estabelecimentoEscolhido).nome//? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
