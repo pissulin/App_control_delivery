@@ -49,6 +49,8 @@ function Cadastro(){
 
     function handleSubmit(event){
         event.preventDefault()
+        
+        
 
         const regexValidaInput = RegExp(/^[,.]/g)
          
@@ -76,7 +78,7 @@ function Cadastro(){
         
     }
 
-
+ 
         return (
             <>
             <Menu />

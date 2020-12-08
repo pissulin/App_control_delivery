@@ -1,9 +1,8 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
-import {
-  FaSave
-} from 'react-icons/fa'
+import { FaSave } from 'react-icons/fa'
+
 
 const pesoFonteTitulo = 'font-weight: 900'
 const pesoFonteSubTitulo = 'font-weight: 500'
@@ -65,7 +64,8 @@ const Cabecalho = styled.div`
 `
 
 
-const estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
+let estabelecimentoEscolhido = db.getStorage('estabelecimentoEscolhido')
+
 const entregas = ()=> {
   if(db.getStorage('entregas')){
     return JSON.parse(db.getStorage('entregas'))
@@ -82,11 +82,22 @@ if(entregas()!==[]){
     somaCaixinha += Number(e.caixinha)
   })
 }
+ function getTaxa(nomeEstabelecimento){
+  const estabelecimentos = db.getStorage('estabelecimentos')? JSON.parse(db.getStorage('estabelecimentos')) : []
+  if(estabelecimentos.length > 0){
+    for(let i=0; i< estabelecimentos.length; i++){
+      if(estabelecimentos[i].estabelecimento === nomeEstabelecimento){
+        return {"diaria": estabelecimentos[i].diaria, 'nome': estabelecimentos[i].estabelecimento} 
+      }
+    }
+  }else{
+    return {"diaria": 0.00, "nome": "Sem nome"}
+  }
+  
+}
 
-
-
-const nomeEstabelecimento = estabelecimentos? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
-const taxa = estabelecimentos? parseFloat(estabelecimentos[0].diaria) : 0.00
+const nomeEstabelecimento = getTaxa(estabelecimentoEscolhido).nome//? estabelecimentos[0].estabelecimento: "Sem Estabelecimento cadastrado"
+const taxa = parseFloat(getTaxa(estabelecimentoEscolhido).diaria).toFixed(2)
 
 const total = somaTaxas + somaCaixinha + Number(taxa)
 
@@ -193,7 +204,7 @@ function RelatorioTaxas(props){
           </SubTitulo>
             
         <SubTitulo>Caixinhas: R$ {somaCaixinha.toFixed(2)}</SubTitulo>
-          <SubTitulo>Diária: R$ {taxa.toFixed(2)}</SubTitulo>
+          <SubTitulo>Diária: R$ {taxa}</SubTitulo>
         </Resumo>
           <Total>
            Total R$ {total.toFixed(2)}

@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Menu from '../components/Menu'
 import styled from 'styled-components';
@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import './tela_controle.css'
 
 import {FiArrowRightCircle} from 'react-icons/fi'
+import db from '../db/db';
 
 let entrega = []
 let id = 0;
@@ -47,6 +48,7 @@ const Submit = styled.button`
       }
 `
 
+
 function Controle () {
     //const data = new Date()
     //const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
@@ -55,11 +57,20 @@ function Controle () {
     const [numComanda, setNumComanda] = useState('')
     const [valorTaxa, setValorTaxa] = useState('')
     const [caixinha, setCaixinha] = useState('')
-    const [diaria, setDiaria] = useState(40.00)
+    const [estabelecimento, setEstabelecimento] = useState(db.getStorage('estabelecimentoEscolhido'))
+
+    const pizzarias = JSON.parse(db.getStorage('estabelecimentos'))?JSON.parse(db.getStorage('estabelecimentos')): []
+    const arrayPizzaria = []
+    pizzarias.map(e=> arrayPizzaria.push(e.estabelecimento))
+    
+
+    function handleOption(e){
+        setEstabelecimento(e.target.value)
+        db.setStorage('estabelecimentoEscolhido', e.target.value)
+    }
 
    function handleSubmit(event){
-        event.preventDefault()
-
+          
         const regexValidaInput = RegExp(/^[,.]/g)
          
         if(regexValidaInput.test(numComanda)){
@@ -100,26 +111,29 @@ function Controle () {
                    entrega.push(e)
                    
                 })
-                if(entrega.length === 1){
+                if(entrega.length === 0){
                     id += entrega.length
                 }else{
                     id = 0
                     id = entrega.length + 1
                 }
                 
-                entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
+                entrega.push({"id":id, 'estabelecimento': estabelecimento, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
                 localStorage.removeItem('entregas')
                 localStorage.setItem('entregas', JSON.stringify(entrega))
                 
             }
             else{
                 id++
-                entrega.push({"id":id, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
+                entrega.push({"id":id, 'estabelecimento': estabelecimento, "numComanda": numComanda, "valorTaxa": valorTaxa.replace(/,/g, "."), "caixinha": caixinha.replace(/,/g, ".") || 0})
                 localStorage.setItem('entregas', JSON.stringify(entrega))
                 
             }
             
-       
+            setNumComanda('')
+            setValorTaxa('')
+            setCaixinha('')
+            
             document.getElementById('numComanda').value='';
             document.getElementById('taxa').value='';
             document.getElementById('caixinha').value= '';
@@ -139,6 +153,12 @@ function Controle () {
             <form className="form" onSubmit={handleSubmit} autoComplete="off">
             
             <div className='formulario'>
+
+            <Label htmlFor= 'nomeEstabelecimento'>Estabelecimento</Label>    
+            <select id ='nomeEstabelecimento' value={estabelecimento} onChange={handleOption}>
+                <option value= {estabelecimento}>{estabelecimento}</option>
+                {arrayPizzaria.map(e =><option value= {e}>{e}</option>)}
+            </select>
 
             <Label htmlFor= "numComanda">Número da comanda</Label>
             <Input 
@@ -186,7 +206,7 @@ function Controle () {
                 </div>
             <Submit   
                 className="submit" 
-                type="submit"
+                
             >
                 Salvar
             </Submit>
