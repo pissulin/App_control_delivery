@@ -50,7 +50,7 @@ function Cadastro(){
     function handleSubmit(event){
         event.preventDefault()
         
-        
+        db.setStorage('estabelecimentoEscolhido', nomePizzaria)
 
         const regexValidaInput = RegExp(/^[,.]/g)
          
