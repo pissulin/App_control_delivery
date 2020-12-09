@@ -13,5 +13,6 @@
     flex-direction: column;
     display: inline-block;
     background-color: transparent;
+    cursor: pointer;
  
 }

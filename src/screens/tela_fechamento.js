@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import Menu from '../components/Menu'
 
-import {FiArrowLeftCircle, FiArrowRightCircle,FiSave} from 'react-icons/fi'
+import {FiSave} from 'react-icons/fi'
 
 import './tela_fechamento.css'
 

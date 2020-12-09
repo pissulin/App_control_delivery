@@ -44,6 +44,10 @@ width: 100%
 const Item = styled.div`
 display: flex;
 justify-content: space-between;
+&:hover {
+  background-color: rgb(255, 255, 142);
+  cursor:pointer
+}
 `
 const Resumo = styled.div`
 `
@@ -172,7 +176,7 @@ function RelatorioTaxas(props){
                         setInterval(() => window.location.reload(),900)
                     }
     
-                }} ><FaSave className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb' } } /></button>
+                }} ><FaSave className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb'}} /></button>
       </Cabecalho>
       
       <BorderBottom/>
@@ -186,7 +190,10 @@ function RelatorioTaxas(props){
 
           { 
             entregas()?.map(e => 
-            <Item>
+            <Item onClick={()=>{
+              const id = e.id
+              console.log(`Apagar a comanda N° ${id}`)
+            }}>
               <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>
               <SubTitulo>R$ { parseInt(e.valorTaxa) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.valorTaxa).toFixed(2)}`:parseFloat(e.valorTaxa).toFixed(2)}</SubTitulo>
               <SubTitulo>R$ { parseInt(e.caixinha) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.caixinha).toFixed(2)}`:parseFloat(e.caixinha).toFixed(2)}</SubTitulo>
