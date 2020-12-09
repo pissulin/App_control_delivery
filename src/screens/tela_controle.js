@@ -22,8 +22,7 @@ const Label = styled.label`
         height: 30px;
         background-color: transparent;
         border-bottom: solid 2px rgba(255,255,255,0.4);
-        
-        margin:15px 0 50px;
+        margin:15px 0 30px;
         &:focus {
             outline: none;
           }
@@ -49,15 +48,15 @@ const Submit = styled.button`
 `
 
 const Select = styled.select`
-      width: 150px;
+      width: 180px;
       background-color: transparent;
       color: white;
       border: 2px solid rgba(255,255,255,0.4);
-      padding: 5px 5px 5px 10px ;
-      margin: 10px 0 30px 0;
+      padding: 5px 5px 5px 8px ;
+      margin: 10px 0 20px 0;
       font-weight: 600;
       font-size: 14px;
-      overflow:hidden;
+      overflow: hidden;
       &:focus {
         outline: none;
         background-color: rgba(0, 0, 0, 0.8)
