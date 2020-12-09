@@ -51,10 +51,20 @@ const Submit = styled.button`
 const Select = styled.select`
       width: 150px;
       background-color: transparent;
-      border: 1px solid white;
-      border-radius: 10px;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
       padding: 5px 5px 5px 10px ;
-      margin: 10px 0 30px 0
+      margin: 10px 0 30px 0;
+      font-weight: 600;
+      font-size: 14px;
+      overflow:hidden;
+      &:focus {
+        outline: none;
+        background-color: rgba(0, 0, 0, 0.8)
+      };
+        & option{
+            background-color: #c5533a;
+        }
 
 `
 
@@ -164,7 +174,7 @@ function Controle () {
             <div className='formulario'>
 
             <Label htmlFor= 'nomeEstabelecimento'>Estabelecimento</Label>    
-            <Select id ='nomeEstabelecimento' value={estabelecimento} onChange={handleOption}>
+            <Select labelId="nomeEstabelecimento" value={estabelecimento} onChange={handleOption}>
                 <option value= {estabelecimento}>{estabelecimento}</option>
                 {arrayPizzaria.map(e =><option value= {e}>{e}</option>)}
             </Select>
