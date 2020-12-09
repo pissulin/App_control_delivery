@@ -55,7 +55,7 @@ const Total = styled.div`
   font-size: 14px;
   color: black;
   background-color: rgba(255, 255, 0, 0.5);
-  padding:10px;
+  padding:10px 5px;
   border-radius:20px;
   ${pesoFonteTitulo};
   ${font}
