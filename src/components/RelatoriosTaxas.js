@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
-import { FaSave } from 'react-icons/fa'
+import { FiSave } from 'react-icons/fi'
 
 
 const pesoFonteTitulo = 'font-weight: 900'
@@ -179,7 +179,7 @@ function RelatorioTaxas(props){
                         setInterval(() => window.location.reload(),900)
                     }
     
-                }} ><FaSave className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb'}} /></button>
+                }} ><FiSave className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb'}} /></button>
       </Cabecalho>
       
       <BorderBottom/>
