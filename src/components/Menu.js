@@ -21,12 +21,7 @@ const ContainerMenu = styled.div`
   bottom: 0;
   padding: 10px 0
 `
-const Link = styled.a`
 
-  background-color: white;
-  color: black
-
-`
 const sizeIcon = 32
 const colorIcon = 'white'
 
@@ -35,21 +30,22 @@ function Menu(props){
 
   return (
     <ContainerMenu>
-      <a href='/'>
+      <Link to='/' title="home">
         <FaHome size={sizeIcon} color={colorIcon}/>
-      </a>
-      <a href='/controle'>
+      </Link>
+
+      <Link to='/controle' title="controle">
         <FaFax size={sizeIcon} color={colorIcon}/>
-      </a>
-      <a href='/historico'>
+      </Link>
+      <a href='/historico' title="historico">
         <FaFileInvoiceDollar size={sizeIcon} color={colorIcon} />
       </a>
-      <a href='/historicos'>
+      <Link to='/historicos' title="historicos">
        <FaChartPie size={sizeIcon} color={colorIcon} />
-      </a>
-      <a href='/cadastro'>
+      </Link>
+      <Link to='/cadastro' title="cadastro">
        <FaEdit size={sizeIcon} color={colorIcon} />
-      </a>
+      </Link>
     </ContainerMenu>
   )
 }

@@ -144,14 +144,15 @@ function RelatorioTaxas(props){
                              }
                              
                              historicos.push(
-                                 {  "data": dataAtual,
-                                 "nomeEstabelecimento": nomeEstabelecimento ,
-                                     "id":id, 
-                                     "QtdEntregas":  entregas().length, 
-                                     "saldoTaxas": somaTaxas, 
-                                     "diaria": taxa, 
-                                     "caixinha": somaCaixinha, 
-                                     "totalReceber": total
+                                 {  
+                                   "data": dataAtual,
+                                   "nomeEstabelecimento": nomeEstabelecimento ,
+                                   "id":id, 
+                                   "QtdEntregas":  entregas().length, 
+                                   "saldoTaxas": somaTaxas, 
+                                   "diaria": taxa, 
+                                   "caixinha": somaCaixinha, 
+                                   "totalReceber": total
                                 }
                             )
                              localStorage.removeItem('historicos')
@@ -194,7 +195,7 @@ function RelatorioTaxas(props){
           { 
             entregas()?.map(e => 
             <Item onClick={()=>{
-              const id = e.id
+              const id = e.numComanda
               console.log(`Apagar a comanda N° ${id}`)
             }}>
               <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>

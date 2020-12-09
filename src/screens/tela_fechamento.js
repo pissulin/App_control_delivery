@@ -81,7 +81,7 @@ function Close() {
                              
                          }
 
-                        setInterval(() => window.location.reload(),900)
+                        window.location.reload()
                     }
     
                 }} ><FiSave className="apagar" size={30} color={"white"} /></button>
