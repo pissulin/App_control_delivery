@@ -46,10 +46,7 @@ width: 100%
 const Item = styled.div`
 display: flex;
 justify-content: space-between;
-&:hover {
-  background-color: rgb(255, 255, 142);
-  cursor:pointer
-}
+
 `
 const Resumo = styled.div`
 `
@@ -197,7 +194,10 @@ function RelatorioTaxas(props){
           { 
             entregas()?.map(e => 
             <Item >
-              <SubTitulo onClick={()=> db.deletarItem(null, e.numComanda)}><FiXSquare size={18} color="red"/></SubTitulo>
+              <SubTitulo onClick={()=> {
+                  if (window.confirm(`Excluir comanda ${e.numComanda} ?`)){db.deletarItem(null, e.numComanda)
+                  }
+              }}><FiXSquare size={18} color="red"/></SubTitulo>
               <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>
               <SubTitulo>R$ { parseInt(e.valorTaxa) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.valorTaxa).toFixed(2)}`:parseFloat(e.valorTaxa).toFixed(2)}</SubTitulo>
               <SubTitulo>R$ { parseInt(e.caixinha) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.caixinha).toFixed(2)}`:parseFloat(e.caixinha).toFixed(2)}</SubTitulo>
