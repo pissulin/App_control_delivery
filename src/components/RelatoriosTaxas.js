@@ -41,7 +41,8 @@ const Header = styled.div`
 const Body = styled.div`
 display: flex;
 flex-direction: column;
-width: 100%
+width: 100%;
+
 `
 const Item = styled.div`
 display: flex;
@@ -198,10 +199,10 @@ function RelatorioTaxas(props){
                   if (window.confirm(`Excluir comanda ${e.numComanda} ?`)){db.deletarItem(null, e.numComanda)
                   }
               }}><FiXSquare size={18} color="red"/></SubTitulo>
-              <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>
-              <SubTitulo>R$ { parseInt(e.valorTaxa) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.valorTaxa).toFixed(2)}`:parseFloat(e.valorTaxa).toFixed(2)}</SubTitulo>
-              <SubTitulo>R$ { parseInt(e.caixinha) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.caixinha).toFixed(2)}`:parseFloat(e.caixinha).toFixed(2)}</SubTitulo>
-              <SubTitulo>R$ { parseInt((parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)) in [1,2,3,4,5,6,7,8,9]? `0${(parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)}`: (parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)}</SubTitulo>
+              <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9,10]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>
+              <SubTitulo>R$ { parseInt(e.valorTaxa) in [1,2,3,4,5,6,7,8,9,10]? `0${parseFloat(e.valorTaxa).toFixed(2)}`:parseFloat(e.valorTaxa).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ { parseInt(e.caixinha) in [1,2,3,4,5,6,7,8,9,10]? `0${parseFloat(e.caixinha).toFixed(2)}`:parseFloat(e.caixinha).toFixed(2)}</SubTitulo>
+              <SubTitulo>R$ { (parseInt(e.valorTaxa) + parseInt(e.caixinha)) in [1,2,3,4,5,6,7,8,9,10]? `0${(parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)}`: (parseFloat(e.valorTaxa) + parseFloat(e.caixinha)).toFixed(2)}</SubTitulo>
             </Item>
             )
           }   

@@ -6,7 +6,7 @@
     background-color: mediumslateblue;
     top: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-weight: 300;
     border-bottom: dashed 1px black ;
     justify-content: c;
