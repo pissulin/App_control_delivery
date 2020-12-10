@@ -1,7 +1,8 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
-import { FiSave } from 'react-icons/fi'
+import DelItem from '../utils/Crud'
+import { FiSave, FiXSquare} from 'react-icons/fi'
 
 
 const pesoFonteTitulo = 'font-weight: 900'
@@ -22,6 +23,7 @@ const Titulo = styled.h1`
 `
 const SubTitulo = styled.h2`
   font-size: 12px;
+  margin-top: 5px;
   ${pesoFonteSubTitulo};
   ${font}
 `
@@ -194,10 +196,8 @@ function RelatorioTaxas(props){
 
           { 
             entregas()?.map(e => 
-            <Item onClick={()=>{
-              const id = e.numComanda
-              console.log(`Apagar a comanda N° ${id}`)
-            }}>
+            <Item >
+              <SubTitulo onClick={()=> db.deletarItem(null, e.numComanda)}><FiXSquare size={18} color="red"/></SubTitulo>
               <SubTitulo>Nº { Number(e.numComanda) in [1,2,3,4,5,6,7,8,9]? `0${Number(e.numComanda)}`:Number(e.numComanda)}</SubTitulo>
               <SubTitulo>R$ { parseInt(e.valorTaxa) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.valorTaxa).toFixed(2)}`:parseFloat(e.valorTaxa).toFixed(2)}</SubTitulo>
               <SubTitulo>R$ { parseInt(e.caixinha) in [1,2,3,4,5,6,7,8,9]? `0${parseFloat(e.caixinha).toFixed(2)}`:parseFloat(e.caixinha).toFixed(2)}</SubTitulo>
