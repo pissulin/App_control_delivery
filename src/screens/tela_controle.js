@@ -174,7 +174,7 @@ function Controle () {
 
             <Label htmlFor= 'nomeEstabelecimento'>Estabelecimento</Label>    
             <Select labelId="nomeEstabelecimento" value={estabelecimento} onChange={handleOption}>
-                <option value= {estabelecimento}>{estabelecimento}</option>
+
                 {arrayPizzaria.map(e =><option value= {e}>{e}</option>)}
             </Select>
 
@@ -223,8 +223,7 @@ function Controle () {
                 <div id="alerta2" className="hidden">Não é permitido virgula ou ponto antes dos numeros</div>
                 </div>
             <Submit   
-                className="submit" 
-                
+                className="submit"    
             >
                 Salvar
             </Submit>

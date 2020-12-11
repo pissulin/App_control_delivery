@@ -43,7 +43,7 @@ function Menu(props){
       <Link to='/historicos' title="historicos">
        <FaChartPie size={sizeIcon} color={colorIcon} />
       </Link>
-      <Link to='/cadastro' title="cadastro">
+      <Link to='/estabelecimentos' title="estabelecimentos">
        <FaEdit size={sizeIcon} color={colorIcon} />
       </Link>
     </ContainerMenu>

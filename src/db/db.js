@@ -8,13 +8,31 @@ const delStorage = (key) => localStorage.removeItem(key)
 const deletarItem = (estabelecimento, comanda) => {
     if(estabelecimento !== null){
         let db_estabelecimento = JSON.parse(getStorage('estabelecimentos'))
+
         for(let i = 0; i < db_estabelecimento.length; i++){
             if(db_estabelecimento[i].estabelecimento === estabelecimento){
-             db_estabelecimento.splice(i, 1)
-              setStorage('estabelecimentos', JSON.stringify(db_estabelecimento))
+             
+             if(i >= 0 && i < (db_estabelecimento.length - 1)){
+                delStorage('estabelecimentoEscolhido')
+                setStorage('estabelecimentoEscolhido',db_estabelecimento[i+1].estabelecimento)
+                db_estabelecimento.splice(i, 1)
+                setStorage('estabelecimentos', JSON.stringify(db_estabelecimento))
+              } 
               
+              else if (i > 0 && i < db_estabelecimento.length ){
+                delStorage('estabelecimentoEscolhido')
+                setStorage('estabelecimentoEscolhido',db_estabelecimento[i-1].estabelecimento)
+                db_estabelecimento.splice(i, 1)
+                setStorage('estabelecimentos', JSON.stringify(db_estabelecimento))
+              }
+
+             else if (i === 0 && db_estabelecimento.length === 1){
+                delStorage('estabelecimentoEscolhido')
+                setStorage('estabelecimentoEscolhido', "---")
+                setStorage('estabelecimentos', JSON.stringify([{"estabelecimento": "---", "diaria": 0.00}])) 
+
+            }
         }
-            
     }
 
     }

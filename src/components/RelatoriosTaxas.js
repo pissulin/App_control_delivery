@@ -1,7 +1,6 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
-import DelItem from '../utils/Crud'
 import { FiSave, FiXSquare} from 'react-icons/fi'
 
 
@@ -124,7 +123,7 @@ function RelatorioTaxas(props){
           <Titulo>{nomeEstabelecimento}</Titulo>
           <SubTitulo>Data: {dataAtual}</SubTitulo>
         </div>
-        <button disabled={false} onClick={function(){
+        <button style={{backgroundColor:'transparent'}} disabled={false} onClick={function(){
                     if (window.confirm("Salvar agora?")) { 
                         
                         if(localStorage.getItem('historicos')){

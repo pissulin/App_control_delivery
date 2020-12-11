@@ -49,7 +49,10 @@ function Cadastro(){
 
     function handleSubmit(event){
         event.preventDefault()
-        
+        let nome = JSON.parse(db.getStorage('estabelecimentos'))
+        if (nome[0].estabelecimento === 'Sem nome'){
+            db.delStorage('estabelecimentos')
+        }
         db.setStorage('estabelecimentoEscolhido', nomePizzaria)
 
         const regexValidaInput = RegExp(/^[,.]/g)
@@ -70,10 +73,11 @@ function Cadastro(){
         if(db.getStorage('estabelecimentos')){
             let db_estabelecimentos = JSON.parse(db.getStorage('estabelecimentos'))
             db_estabelecimentos.push({estabelecimento:nomePizzaria, diaria:diaria})
-            console.log(db_estabelecimentos)
             db.setStorage('estabelecimentos',JSON.stringify(db_estabelecimentos))
+            window.location.href='/estabelecimentos'
         }else {
             db.setStorage('estabelecimentos',JSON.stringify([{estabelecimento:nomePizzaria, diaria:diaria}]))
+            window.location.href='/estabelecimentos'
         }
         
     }
