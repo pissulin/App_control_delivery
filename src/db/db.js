@@ -29,7 +29,7 @@ const deletarItem = (estabelecimento, comanda) => {
              else if (i === 0 && db_estabelecimento.length === 1){
                 delStorage('estabelecimentoEscolhido')
                 setStorage('estabelecimentoEscolhido', "---")
-                setStorage('estabelecimentos', JSON.stringify([{"estabelecimento": "---", "diaria": 0.00}])) 
+                setStorage('estabelecimentos', JSON.stringify([{"estabelecimento": "---", "diaria": "0.00"}])) 
 
             }
         }

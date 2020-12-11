@@ -50,7 +50,7 @@ function Cadastro(){
     function handleSubmit(event){
         event.preventDefault()
         let nome = JSON.parse(db.getStorage('estabelecimentos'))
-        if (nome[0].estabelecimento === 'Sem nome'){
+        if (nome[0].estabelecimento === '---'){
             db.delStorage('estabelecimentos')
         }
         db.setStorage('estabelecimentoEscolhido', nomePizzaria)
