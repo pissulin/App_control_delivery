@@ -13,7 +13,7 @@ const Container = styled.div`
     align-items:center;
 
     h1{
-        font-size: 16px;
+        font-size: 20px;
         margin-top: 40px;
         color: white;
     }
@@ -48,7 +48,17 @@ const Header = styled.div`
 `
 
 const MenuCadastro = styled.div`
+    button {
+        background-color: black;
+        color: white;
+        margin-top: 30px;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 16px;
 
+
+    }
 `
 
 const estabelecimentos = ()=> {
