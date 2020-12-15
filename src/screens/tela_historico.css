@@ -2,11 +2,11 @@
     width: 100%;
     height: 100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .container .historico {
-    padding-bottom: 0;
+    margin: 0;
 }
 
 header {
@@ -41,15 +41,9 @@ header > button:hover {
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.171);
     width: 95%;
-    min-height: 70%;
+    min-height: 60%;
     border-radius: 10px;
     padding-top: 10px;
     margin: 10px;
     overflow: scroll;
-}
-
-.setas {
-    width: 200px;
-    display: flex;
-    justify-content: space-around;
 }

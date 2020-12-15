@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Menu from '../components/Menu'
 
-import {FiArrowLeftCircle, FiArrowRightCircle,FiSave} from 'react-icons/fi'
+import {FiSave} from 'react-icons/fi'
 
 import './tela_fechamento.css'
 
@@ -26,6 +27,7 @@ function Close() {
     const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
     const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}`
     return <div className="container">
+        <Menu />
         <header>
             <h1>Fechamento</h1>
                 <button disabled={false} onClick={function(){
@@ -79,7 +81,7 @@ function Close() {
                              
                          }
 
-                        setInterval(() => window.location.reload(),900)
+                        window.location.reload()
                     }
     
                 }} ><FiSave className="apagar" size={30} color={"white"} /></button>
@@ -94,18 +96,12 @@ function Close() {
             <h2>{`Total a receber R$ ${(saldofinal + diaria + caixinha).toFixed(2)}`}</h2>
         </div>
         
-        <div className="setas">
-            <Link to='/historico' title="historico">
-                <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-            </Link>
-            <Link to='/historicos' title="historico">
-                <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-            </Link>
-        </div>
+       
     </div>
        
     } catch (error) {
         return <div className="container">
+         <Menu />   
          <header>
             <h1>Fechamento</h1>
                 <button onClick={function(){
@@ -124,14 +120,6 @@ function Close() {
             <h2>{`Total a receber 0`}</h2>
         </div>
         
-        <div className="setas">
-            <Link to='/historico' title="historico">
-                <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-            </Link>
-            <Link to='/historicos' title="historico">
-                <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-            </Link>
-        </div>
     </div>
     }
 }

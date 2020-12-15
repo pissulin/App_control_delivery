@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Menu from '../components/Menu'
 
 import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw, FiTrash} from 'react-icons/fi'
 
@@ -16,6 +17,7 @@ function HistoricosSalvos(){
 
         return (
             <div className="container">
+              <Menu />  
             <header>
             <h1>Históricos salvos</h1> 
              <button onClick={function(){
@@ -31,20 +33,13 @@ function HistoricosSalvos(){
                     return <Historicos 
                                 data={entrega['data']} 
                                 totalEntregas={entrega['QtdEntregas']}
-                                totalTaxas={entrega['saldofinal']}
+                                totalTaxas={entrega['saldoTaxas']}
                                 diaria={entrega['diaria']}
                                 caixinha ={entrega['caixinha']}
                                 totalReceber={entrega['totalReceber']}
                             />
                 })}  
-                <div className="setas fixo">
-                    <Link to='/fechamento' title="fechamento">
-                        <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-                    </Link>
-                    <Link to='/' title="home">
-                        <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-                    </Link>
-                </div>
+                
             </div>
             
         )
@@ -53,20 +48,13 @@ function HistoricosSalvos(){
         
             return (
                 <div className="container">
+                    <Menu />
                     <h1>Históricos salvos</h1>
                     <div className="mensagem">
                     
                         <h1>Você não tem histórico salvo</h1>
                     </div>
-                    
-                    <div className="setas fixo">
-                        <Link to='/fechamento' title="historico">
-                            <FiArrowLeftCircle className='setaDireita' size={50} color="white" />
-                        </Link>
-                        <Link to='/' title="home">
-                            <FiArrowRightCircle className='setaDireita' size={50} color="white" />
-                        </Link>
-                    </div>
+                
                 </div>
                 
             )

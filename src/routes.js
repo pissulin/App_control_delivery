@@ -3,17 +3,21 @@ import React from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 
 //components
-import Controle from './screens/tela_controle';
 import Home from './screens/tela_inicial';
+import Cadastro from './screens/tela_cadastro'
+import Controle from './screens/tela_controle';
 import Historico from './screens/tela_historico';
 import Fechamento from './screens/tela_fechamento';
 import Historicos from './screens/tela_historicos';
+import Estabelecimentos from './screens/tela_estabelecimentos'
 
 function Routes(){
     return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Home} />
+                <Route path='/estabelecimentos' component={Estabelecimentos} />
+                <Route path='/cadastro' component={Cadastro} />
                 <Route path="/controle" component={Controle} />
                 <Route path="/historico" component={Historico} />
                 <Route path="/fechamento" component={Fechamento} />
