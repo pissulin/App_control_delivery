@@ -42,7 +42,11 @@ import db from '../db/db'
           }
     `
 
+
+    
 function Cadastro(){
+
+    <script data-ad-client="ca-pub-5869062660201180" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     const [nomePizzaria, setNomePizzaria] = useState('')
     const [diaria, setDiaria] = useState('')

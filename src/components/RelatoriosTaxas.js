@@ -115,7 +115,7 @@ let id = 0
 
 function RelatorioTaxas(props){
 
-
+<script data-ad-client="ca-pub-5869062660201180" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   return (
     <ContainerRelatorioTaxas>
       <Cabecalho>

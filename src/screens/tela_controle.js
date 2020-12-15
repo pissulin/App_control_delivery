@@ -68,6 +68,8 @@ const Select = styled.select`
 `
 
 function Controle () {
+
+    <script data-ad-client="ca-pub-5869062660201180" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     //const data = new Date()
     //const dataNormal =  new Date(data.valueOf() - data.getTimezoneOffset() * 120000)
     //const dataAtual = `${data.getDate().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}/${(data.getMonth()+1)}/${data.getFullYear()}` 

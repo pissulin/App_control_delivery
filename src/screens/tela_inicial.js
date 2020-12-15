@@ -12,6 +12,8 @@ import backgroundImg from '../images/background.webp'
 //icons
 import {FiArrowRightCircle} from 'react-icons/fi' //icon seta p/direita 
 
+<script data-ad-client="ca-pub-5869062660201180" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 const dbInicial = () =>{
     let res = JSON.parse(db.getStorage("estabelecimentos"))
     console.log(res)
