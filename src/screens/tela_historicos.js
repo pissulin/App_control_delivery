@@ -16,7 +16,7 @@ function HistoricosSalvos(){
         console.log(arrayHistorico)
 
         return (
-            <div className="container">
+            <div className="containerHistorico">
               <Menu />  
             <header>
             <h1 className='title'>Históricos salvos</h1> 
