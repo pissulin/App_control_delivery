@@ -34,6 +34,9 @@ const Item = styled.div`
         display: flex;
         align-items: center;
     }
+    div:last-child{
+        margin-bottom: 30px;
+    }
     
 `
 const Header = styled.div`
@@ -58,6 +61,7 @@ const MenuCadastro = styled.div`
         font-weight: bold;
         border-radius: 5px;
         font-size: 16px;
+        margin-top: 20px;
 
 
     }
