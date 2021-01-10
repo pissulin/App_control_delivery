@@ -19,7 +19,7 @@ function HistoricosSalvos(){
             <div className="container">
               <Menu />  
             <header>
-            <h1>Históricos salvos</h1> 
+            <h1 className='title'>Históricos salvos</h1> 
              <button onClick={function(){
                         if (window.confirm("Confirmar a exclusão!")) { 
                             localStorage.removeItem('historicos')

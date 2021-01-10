@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import {
@@ -17,7 +17,7 @@ const ContainerMenu = styled.div`
   position: fixed;
   width: 100%;
   text-align: center;
-  background-color: black;
+  background-color: rgb(18, 18, 18);
   bottom: 0;
   padding: 10px 0
 `

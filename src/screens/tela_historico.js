@@ -12,7 +12,7 @@ import {FiArrowLeftCircle, FiArrowRightCircle, FiRefreshCcw} from 'react-icons/f
 
 export default function Historico() {
     return (
-        <div className="container">
+        <div className="containerComanda">
             <Menu />
             <RelatorioTaxas/>
         </div>

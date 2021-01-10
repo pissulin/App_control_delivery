@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
-import { FiSave, FiXSquare} from 'react-icons/fi'
+import { FiSave, FiXSquare, FiTrash2} from 'react-icons/fi'
 
 
 const pesoFonteTitulo = 'font-weight: 900'
@@ -123,6 +123,15 @@ function RelatorioTaxas(props){
           <Titulo>{nomeEstabelecimento}</Titulo>
           <SubTitulo>Data: {dataAtual}</SubTitulo>
         </div>
+        <button style={{backgroundColor:'transparent'}} disabled={false} onClick={function(){
+                  if (window.confirm("Confirmar a exclusão!")) { 
+                    localStorage.removeItem('entregas')
+                    window.location.reload()
+                  }
+                  
+                  
+                }} ><FiTrash2 className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb'}} /></button>
+
         <button style={{backgroundColor:'transparent'}} disabled={false} onClick={function(){
                     if (window.confirm("Salvar agora?")) { 
                         

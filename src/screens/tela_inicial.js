@@ -28,9 +28,7 @@ function Background(){
         <div className='background'>
             <Menu />
             {dbInicial()}
-             <h1><span>Controle</span> suas <span>taxas</span> das <span>entregas</span></h1>
-             <img src={backgroundImg} alt="braços com mãos calculando " />
-             
+             <h1><span>Controle</span> suas <span>taxas</span> das <span>entregas</span></h1>             
          </div> 
     )
 }

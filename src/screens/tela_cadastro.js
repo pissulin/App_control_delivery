@@ -27,20 +27,27 @@ import db from '../db/db'
             display: flex;
             flex-direction: column;
             align-items: center;
+            
         }
     `
 
     const Submit = styled.button`
-        color: white;
-        background-color: black;
+        color: black;
+        background-color: white;
         padding: 10px;
         width: 100px;
+        border-radius: 5px;
         font-weight:bold;
         &:focus {
             outline: none;
             background-color: rgba(0,0,0,0.6)
           }
     `
+const ContainerPai = styled.div`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+`;
 
 
     
@@ -88,7 +95,7 @@ function Cadastro(){
 
  
         return (
-            <>
+            <ContainerPai>
             <Menu />
             <form className="container-cadastro" onSubmit={handleSubmit} autoComplete='off'>
                 <ContainerFormulario>
@@ -127,7 +134,7 @@ function Cadastro(){
                 </ContainerFormulario>
                 
             </form>  
-            </>
+            </ContainerPai>
         )
 
 }

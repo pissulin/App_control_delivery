@@ -32,12 +32,13 @@ const Label = styled.label`
         display: flex;
         flex-direction: column;
         align-items: center;
+        
     }
 `
 
 const Submit = styled.button`
-    color: white;
-    background-color: black;
+    background-color: white;
+    color: black;
     padding: 10px;
     width: 100px;
     font-weight:bold;

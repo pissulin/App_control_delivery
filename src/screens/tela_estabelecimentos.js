@@ -22,16 +22,19 @@ const ContainerLista = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
 `
 const Item = styled.div`
     display: flex;
     justify-content: space-between;
     color: white;
+    border-bottom: rgb(70, 70, 70) dotted 1px;
+    padding-bottom: 5px;
     div{
         display: flex;
         align-items: center;
     }
+    
 `
 const Header = styled.div`
     display: flex;
@@ -49,9 +52,8 @@ const Header = styled.div`
 
 const MenuCadastro = styled.div`
     button {
-        background-color: black;
-        color: white;
-        margin-top: 30px;
+        background-color: white;
+        color: black;
         padding: 10px;
         font-weight: bold;
         border-radius: 5px;
@@ -97,7 +99,7 @@ const ScreenEstabelecimentos = () => {
                                         display:"flex", 
                                         outline:'none'
                                     }
-                                }><FiXSquare size={20} color= 'white' style={{marginRight: '10px'}}/></button>
+                                }><FiXSquare size={20} color= 'red' style={{marginRight: '10px'}}/></button>
                             <p>{e.estabelecimento}</p>
                             </div>
                             <p>{`R$ ${e.diaria}`}</p>
