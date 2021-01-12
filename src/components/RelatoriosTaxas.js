@@ -6,10 +6,10 @@ import { FiSave, FiXSquare, FiTrash} from 'react-icons/fi'
 
 const pesoFonteTitulo = 'font-weight: 900'
 const pesoFonteSubTitulo = 'font-weight: 500'
-const font = "font-family: 'Roboto Mono', sans-serif"
+const font = "font-family: 'Arial', sans-serif"
 
 const ContainerRelatorioTaxas = styled.div`
-  background-color: :rgb(133, 131, 131);
+  background-color: rgb(133, 131, 131);
   padding: 20px;
   width: 100%;
   min-height: Calc(100% - 36px);
