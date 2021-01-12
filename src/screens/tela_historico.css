@@ -3,6 +3,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    background-color: rgb(133, 131, 131);
 }
 
 .container .historico {

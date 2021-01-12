@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
 import styled from 'styled-components';
 import db from '../db/db'
-import { FiSave, FiXSquare, FiTrash2} from 'react-icons/fi'
+import { FiSave, FiXSquare, FiTrash} from 'react-icons/fi'
 
 
 const pesoFonteTitulo = 'font-weight: 900'
@@ -9,20 +9,21 @@ const pesoFonteSubTitulo = 'font-weight: 500'
 const font = "font-family: 'Roboto Mono', sans-serif"
 
 const ContainerRelatorioTaxas = styled.div`
-  background-color: #ffffeb;
+  background-color: :rgb(133, 131, 131);
   padding: 20px;
   width: 100%;
   min-height: Calc(100% - 36px);
 `
 const Titulo = styled.h1`
   font-size: 16px;
-  color: black;
+  color: white;
   ${pesoFonteTitulo};
   ${font}
 `
 const SubTitulo = styled.h2`
   font-size: 12px;
   margin-top: 5px;
+  color: white;
   ${pesoFonteSubTitulo};
   ${font}
 `
@@ -53,9 +54,9 @@ const Resumo = styled.div`
 const Total = styled.div`
   font-size: 14px;
   color: black;
-  background-color: rgba(255, 255, 0, 0.5);
+  background-color: white;
   padding:10px 5px;
-  border-radius:20px;
+  border-radius:5px;
   ${pesoFonteTitulo};
   ${font}
 `
@@ -130,9 +131,9 @@ function RelatorioTaxas(props){
                   }
                   
                   
-                }} ><FiTrash2 className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb'}} /></button>
+                }} ><FiTrash className="apagar" size={30} color={"red"} style= {{ backgroundColor: 'rgb(133, 131, 131)', marginLeft: 150}} /></button>
 
-        <button style={{backgroundColor:'transparent'}} disabled={false} onClick={function(){
+        <button style={{backgroundColor:'rgb(133, 131, 131)'}} disabled={false} onClick={function(){
                     if (window.confirm("Salvar agora?")) { 
                         
                         if(localStorage.getItem('historicos')){
@@ -188,7 +189,7 @@ function RelatorioTaxas(props){
                         setInterval(() => window.location.reload(),900)
                     }
     
-                }} ><FiSave className="apagar" size={30} color={"black"} style= {{ backgroundColor: '#ffffeb'}} /></button>
+                }} ><FiSave className="apagar" size={30} color={"green"} style= {{ backgroundColor: 'rgb(133, 131, 131)'}} /></button>
       </Cabecalho>
       
       <BorderBottom/>
