@@ -189,7 +189,7 @@ function RelatorioTaxas(props){
                         setInterval(() => window.location.reload(),900)
                     }
     
-                }} ><FiSave className="apagar" size={30} color={"green"} style= {{ backgroundColor: 'rgb(133, 131, 131)'}} /></button>
+                }} ><FiSave className="apagar" size={30} color={"	#9ACD32"} style= {{ backgroundColor: 'rgb(133, 131, 131)'}} /></button>
       </Cabecalho>
       
       <BorderBottom/>
