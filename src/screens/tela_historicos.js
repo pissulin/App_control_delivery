@@ -26,7 +26,7 @@ function HistoricosSalvos(){
                             setInterval(() => window.location.reload(),1000)
                           }
 
-                }} ><FiTrash className="apagar" size={30} color={"white"} /></button>  
+                }} ><FiTrash className="apagar" size={30} color={"red"} /></button>  
             </header>
                 
             {arrayHistorico.map((entrega) => {
