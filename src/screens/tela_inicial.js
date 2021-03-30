@@ -31,7 +31,7 @@ function Background(){
             {dbInicial()}
              <h1><span>Controle</span> suas <span>taxas</span> das <span>entregas</span></h1>             
          </div> 
-         <iframe width="100%" height="900px" src="http://www.sindimotosp.com.br/index.html" frameborder="0" allowfullscreen>
+         <iframe width="100%" height="900px" src="https://gildosmotoboys.com/" frameborder="0" allowfullscreen>
          </iframe>
         </div>
  
